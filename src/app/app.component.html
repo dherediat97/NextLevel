@@ -1,9 +1,33 @@
-<form class="example-form">
-  <mat-form-field class="example-full-width">
-    <input matInput placeholder="Favorite food" value="Sushi">
-  </mat-form-field>
-
-  <mat-form-field class="example-full-width">
-    <textarea matInput placeholder="Leave a comment"></textarea>
-  </mat-form-field>
-</form>
+<mat-toolbar color="primary">
+  <span>{{tituloApp}}</span>
+</mat-toolbar>
+<mat-tab-group>
+  <mat-tab label="Tab 1">
+    <ng-template mat-tab-label>
+      League of Legends
+    </ng-template>
+    <mat-grid-list cols="1" rowHeight="200px">
+      <mat-grid-tile>
+        <div>
+          <mat-form-field>
+            <input matInput placeholder="Nombre de Invocador">
+            <span matTooltip="Introduce aquí el nombre de tu invocador" matSuffix>
+              <mat-icon color="accent" style="font-size:14px">help</mat-icon>
+            </span>
+          </mat-form-field>
+          <mat-form-field>
+            <mat-select placeholder="Selecciona tu región">
+              <mat-option *ngFor="let region of regiones" [value]="region.value">
+                {{ region.viewValue }}
+              </mat-option>
+            </mat-select>
+            <span matTooltip="Selecciona tu región asignada en el juego" matSuffix>
+              <mat-icon color="accent" style="font-size:14px">help</mat-icon>
+            </span>
+          </mat-form-field>
+          <button mat-raised-button color="primary">Buscar estadisticas</button>
+        </div>
+      </mat-grid-tile>
+    </mat-grid-list>
+  </mat-tab>
+</mat-tab-group>
