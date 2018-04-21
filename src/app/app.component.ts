@@ -27,16 +27,16 @@ export class AppComponent {
   invocador: any;
   api_key = "RGAPI-78647b29-9558-4849-805b-08b06a8e7823";
 
-  buscarEstadisticas(nombreInvocador){
-    let headers: Headers = new Headers();
-    headers.set('Content-Type', 'application/json');
-    headers.set('X-Riot-Token',this.api_key);
-    let opts: RequestOptions = new RequestOptions();
-    opts.headers = headers;
-    this.http.get('https://euw1.api.riotgames.com/lol/summoner/v3/summoners/by-name/'+nombreInvocador,opts)
-    .subscribe(
-      res => console.log(res),
-      msg => console.error(msg)
-    );
-  }
+  // buscarEstadisticas(nombreInvocador){
+  //   let headers: Headers = new Headers();
+  //   headers.set('Content-Type', 'application/json');
+  //   headers.set('X-Riot-Token',this.api_key);
+  //   let opts: RequestOptions = new RequestOptions();
+  //   opts.headers = headers;
+  //   this.http.get('https://euw1.api.riotgames.com/lol/summoner/v3/summoners/by-name/'+nombreInvocador,opts)
+  //   .subscribe(
+  //     res => console.log(res),
+  //     msg => console.error(msg)
+  //   );
+  // }
 }
