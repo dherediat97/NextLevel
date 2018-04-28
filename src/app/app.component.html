@@ -1,36 +1,50 @@
-<mat-toolbar color="primary">
+<mat-toolbar color="{{tabs.backgroundcolor}}">
   <span>{{tituloApp}}</span>
 </mat-toolbar>
-<mat-tab-group>
-  <mat-tab label="Buscador de Invocadores">
+<mat-tab-group (selectChange)='onSelectChange($event)' color="{{tabs.backgroundcolor}}">
+  <mat-tab label="League of Legends">
     <ng-template mat-tab-label>
-      Buscador de Invocadores
+      League of Legends
     </ng-template>
     <mat-grid-list cols="1" rowHeight="200px">
       <mat-grid-tile>
-          <mat-form-field>
-            <!-- <input matInput placeholder="Nombre de Invocador" [(ngModel)]="nombreInvocador"> -->
-            <span matTooltip="Introduce aquí el nombre de tu invocador" matSuffix>
-              <mat-icon color="accent" style="font-size:14px">help</mat-icon>
-            </span>
-          </mat-form-field>
-          <mat-form-field>
-            <mat-select placeholder="Selecciona tu región">
-              <mat-option *ngFor="let region of regiones" [value]="region.value">
-                {{ region.viewValue }}
-              </mat-option>
-            </mat-select>
-            <span matTooltip="Selecciona tu región asignada en el juego" matSuffix>
-              <mat-icon color="accent" style="font-size:14px">help</mat-icon>
-            </span>
-          </mat-form-field>
-          <!-- <button mat-raised-button color="primary" (click)="buscarEstadisticas(nombreInvocador)">Buscar estadisticas</button> -->
+        <mat-form-field color="{{tabs.backgroundcolor}}">
+          <input matInput placeholder="Nombre de Invocador" [(ngModel)]="nombreInvocador">
+          <span matTooltip="Introduce aquí el nombre de tu invocador" matSuffix>
+                <mat-icon color="{{tabs.backgroundcolor}}" style="font-size:14px">help</mat-icon>
+              </span>
+        </mat-form-field>
+        <mat-form-field color="{{tabs.backgroundcolor}}">
+          <mat-select placeholder="Selecciona tu región">
+            <mat-option *ngFor="let region of regiones" [value]="region.value">
+              {{ region.viewValue }}
+            </mat-option>
+          </mat-select>
+          <span matTooltip="Selecciona tu región asignada en el juego" matSuffix>
+                <mat-icon color="{{tabs.backgroundcolor}}" style="font-size:14px">help</mat-icon>
+              </span>
+        </mat-form-field>
+        <button mat-raised-button color="{{tabs.backgroundcolor}}" (click)="buscarEstadisticas(nombreInvocador)">Buscar estadisticas</button>
       </mat-grid-tile>
     </mat-grid-list>
-    </mat-tab>
-  <mat-tab label="Campeones">
+  </mat-tab>
+  <mat-tab label="Paladins">
     <ng-template mat-tab-label>
-      Campeones
+      Paladins
     </ng-template>
-    </mat-tab>
+  </mat-tab>
+
 </mat-tab-group>
+<mat-card class="example-card" *ngFor='let campeon of campeones'>
+  <mat-card-header>
+    <div mat-card-avatar class="example-header-image"></div>
+    <mat-card-title>{{campeon.Name}}</mat-card-title>
+    <mat-card-subtitle>{{campeon.title}}</mat-card-subtitle>
+  </mat-card-header>
+  <img mat-card-image src="{{campeon.ChampionIcon_URL}}">
+  <mat-card-content>
+    <p>
+      {{campeon.Description}}
+    </p>
+  </mat-card-content>
+</mat-card>
