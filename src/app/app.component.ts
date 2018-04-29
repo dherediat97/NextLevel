@@ -36,13 +36,13 @@ export class AppComponent {
     }
   }
   cargarCampeones() {
-    this.http.get('http://192.168.1.131:4200/campeonesPaladins')
+    this.http.get('http://localhost:4200/campeonesPaladins')
       .subscribe(
         res => this.campeones = res.json().campeones
       );
   }
   buscarEstadisticas(nombreInvocador) {
-    this.http.get('https://localhost:9797/buscarInvocador/' + nombreInvocador)
+    this.http.get('http://localhost:4200/buscarInvocador/' + nombreInvocador)
       .subscribe(
         res => console.log(res)
       );
