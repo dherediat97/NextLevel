@@ -1,8 +1,13 @@
-.example-card {
-  max-width: 400px;
+.cardChampion {
+  max-width: 200px;
+  margin: 20px;
+  display: inline-block;
+  text-align: left;
+}
+.espacio-invisible-izquierda {
+  flex: 1 1 auto;
 }
 
-.example-header-image {
-  /* background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
-  background-size: cover; */
+.cardChampion .championRol{
+  margin-top: 20px;
 }
