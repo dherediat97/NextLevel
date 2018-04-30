@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { HttpModule, Http } from '@angular/http';
+//import { Router } from "@angular/router";
 import { HttpClient } from '@angular/common/http';
 import 'rxjs/add/operator/map'
 @Component({
@@ -34,6 +35,9 @@ export class AppComponent {
       this.tabs.backgroundcolor = "accent";
       this.cargarCampeones();
     }
+  }
+  detallesCampeon(id) {
+  //  this.router.navigate(['championDetail',id]);
   }
   cargarCampeones() {
     this.http.get('http://localhost:4200/campeonesPaladins')

@@ -106,7 +106,7 @@ router.get('/obtenerCampeones', function(req, res) {
       campeonesJSON.campeones = JSON.parse(body);
       res.send(campeonesJSON);
     });
-  },2000)
+  },1000)
 
 
 });
@@ -129,5 +129,5 @@ router.get('/leagueOfLegends/buscarInvocador/:nombre', function(req, res) {
 app.use(router);
 
 app.listen(9797, function() {
-  console.log("API escuchando en http://localhost:9797");
+  //console.log("API escuchando en http://localhost:9797");
 });

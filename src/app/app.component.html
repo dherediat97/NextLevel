@@ -1,5 +1,13 @@
 <mat-toolbar color="{{tabs.backgroundcolor}}">
   <span>{{tituloApp}}</span>
+  <span class="espacio-invisible-izquierda"></span>
+  <span matTooltip="Activa el modo Noche" matSuffix>
+    <button aria-haspopup="true" mat-icon-button="" mattooltip="Select a theme!" tabindex="-1" style="touch-action: none; -moz-user-select: none;" class="mat-icon-button" aria-describedby="cdk-describedby-message-0" cdk-describedby-host="">
+    <span class="mat-button-wrapper" >
+      <mat-icon class="mat-icon material-icons" role="img" aria-hidden="true">format_color_fill</mat-icon>
+    </span>
+  </button>
+  </span>
 </mat-toolbar>
 <mat-tab-group (selectChange)='onSelectChange($event)' color="{{tabs.backgroundcolor}}">
   <mat-tab label="League of Legends">
@@ -21,8 +29,8 @@
             </mat-option>
           </mat-select>
           <span matTooltip="Selecciona tu región asignada en el juego" matSuffix>
-                <mat-icon color="{{tabs.backgroundcolor}}" style="font-size:14px">help</mat-icon>
-              </span>
+              <mat-icon color="{{tabs.backgroundcolor}}" style="font-size:14px">help</mat-icon>
+          </span>
         </mat-form-field>
         <button mat-raised-button color="{{tabs.backgroundcolor}}" (click)="buscarEstadisticas(nombreInvocador)">Buscar estadisticas</button>
       </mat-grid-tile>
@@ -32,19 +40,27 @@
     <ng-template mat-tab-label>
       Paladins
     </ng-template>
+    <mat-card class="cardChampion" *ngFor='let campeon of campeones' (click)="detallesCampeon(campeon)">
+      <mat-card-header>
+        <mat-card-title>{{campeon.Name}}</mat-card-title>
+        <mat-card-subtitle>{{campeon.Title}}</mat-card-subtitle>
+      </mat-card-header>
+      <div *ngIf="campeon.OnFreeRotation == ''">
+        <img mat-card-lg-image style="background-size: cover;" src="{{campeon.ChampionIcon_URL}}" />
+      </div>
+      <div *ngIf="campeon.OnFreeRotation">
+        <img mat-card-lg-image class="cintaCampeonGratuito" style="background-size: cover;" src="{{campeon.ChampionIcon_URL}}" />
+      </div>
+      <mat-card-content>
+        <div class="championRol">
+          <mat-chip-list>
+            <mat-chip color="accent" selected="true">{{campeon.Roles}}</mat-chip>
+          </mat-chip-list>
+        </div>
+      </mat-card-content>
+    </mat-card>
   </mat-tab>
-
 </mat-tab-group>
-<mat-card class="example-card" *ngFor='let campeon of campeones'>
-  <mat-card-header>
-    <div mat-card-avatar class="example-header-image"></div>
-    <mat-card-title>{{campeon.Name}}</mat-card-title>
-    <mat-card-subtitle>{{campeon.title}}</mat-card-subtitle>
-  </mat-card-header>
-  <img mat-card-image src="{{campeon.ChampionIcon_URL}}">
-  <mat-card-content>
-    <p>
-      {{campeon.Description}}
-    </p>
-  </mat-card-content>
-</mat-card>
+<mat-toolbar color="{{tabs.backgroundcolor}}">
+  <span>{{tituloApp}} © - Creado y Desarrollado por dherediat97</span>
+</mat-toolbar>
