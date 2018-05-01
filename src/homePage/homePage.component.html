@@ -2,7 +2,7 @@
   <span>{{tituloApp}}</span>
   <span class="espacio-invisible-izquierda"></span>
   <span matTooltip="Activa el modo Noche" matSuffix>
-    <button aria-haspopup="true" mat-icon-button="" mattooltip="Select a theme!" tabindex="-1" style="touch-action: none; -moz-user-select: none;" class="mat-icon-button" aria-describedby="cdk-describedby-message-0" cdk-describedby-host="">
+    <button aria-haspopup="true" mat-icon-button="" tabindex="-1" style="touch-action: none; -moz-user-select: none;" class="mat-icon-button" aria-describedby="cdk-describedby-message-0" cdk-describedby-host="">
     <span class="mat-button-wrapper" >
       <mat-icon class="mat-icon material-icons" role="img" aria-hidden="true">format_color_fill</mat-icon>
     </span>
@@ -14,78 +14,16 @@
     <ng-template mat-tab-label>
       League of Legends
     </ng-template>
-    <mat-grid-list cols="1" rowHeight="200px">
-      <mat-grid-tile>
-        <mat-form-field color="{{tabs.backgroundcolor}}">
-          <input matInput placeholder="Nombre de Invocador" [(ngModel)]="nombreInvocador">
-          <span matTooltip="Introduce aquí el nombre de tu invocador" matSuffix>
-                <mat-icon color="{{tabs.backgroundcolor}}" style="font-size:14px">help</mat-icon>
-              </span>
-        </mat-form-field>
-        <mat-form-field color="{{tabs.backgroundcolor}}">
-          <mat-select placeholder="Selecciona tu región">
-            <mat-option *ngFor="let region of regiones" [value]="region.value">
-              {{ region.viewValue }}
-            </mat-option>
-          </mat-select>
-          <span matTooltip="Selecciona tu región asignada en el juego" matSuffix>
-              <mat-icon color="{{tabs.backgroundcolor}}" style="font-size:14px">help</mat-icon>
-          </span>
-        </mat-form-field>
-        <button mat-raised-button color="{{tabs.backgroundcolor}}" (click)="buscarEstadisticas(nombreInvocador)">Buscar estadisticas</button>
-      </mat-grid-tile>
-    </mat-grid-list>
   </mat-tab>
   <mat-tab label="Paladins">
     <ng-template mat-tab-label>
       Paladins
     </ng-template>
-    <mat-card class="cardChampion" *ngFor='let campeon of campeones' (click)="detallesCampeon(campeon)">
-      <mat-card-header>
-        <mat-card-title>{{campeon.Name}}</mat-card-title>
-        <mat-card-subtitle>{{campeon.Title}}</mat-card-subtitle>
-      </mat-card-header>
-      <div *ngIf="campeon.OnFreeRotation == ''">
-        <img mat-card-lg-image style="background-size: cover;" src="{{campeon.ChampionIcon_URL}}" />
-      </div>
-      <div *ngIf="campeon.OnFreeRotation">
-        <img mat-card-lg-image class="cintaCampeonGratuito" style="background-size: cover;" src="{{campeon.ChampionIcon_URL}}" />
-      </div>
-      <mat-card-content>
-        <div class="championRol">
-          <mat-chip-list>
-            <mat-chip color="accent" selected="true">{{campeon.Roles}}</mat-chip>
-          </mat-chip-list>
-        </div>
-      </mat-card-content>
-    </mat-card>
   </mat-tab>
   <mat-tab label="Smite">
     <ng-template mat-tab-label>
       Smite
     </ng-template>
-    <mat-card class="cardGod" *ngFor='let dios of dioses' (click)="detallesCampeon(dios)">
-      <mat-card-header>
-        <mat-card-title>{{dios.Name}}</mat-card-title>
-        <mat-card-subtitle>{{dios.Title}}</mat-card-subtitle>
-      </mat-card-header>
-      <!-- <div *ngIf="dios.OnFreeRotation == ''">
-        <img mat-card-lg-image style="background-size: cover;" src="{{dios.ChampionIcon_URL}}" />
-      </div>
-      <div *ngIf="dios.OnFreeRotation">
-        <img mat-card-lg-image class="cintaDiosGratuito" style="background-size: cover;" src="{{dios.ChampionIcon_URL}}" />
-      </div> -->
-      <mat-card-content>
-        <div class="diosRol">
-          <mat-chip-list>
-            <mat-chip color="warn" selected="true" *ngIf="dios.Pantheon == 'Griego'">{{dios.Pantheon}}</mat-chip>
-            <mat-chip color="accent" selected="true" *ngIf="dios.Pantheon == 'Egipcio'">{{dios.Pantheon}}</mat-chip>
-            <mat-chip color="primary" selected="true" *ngIf="dios.Pantheon != 'Griego' && dios.Pantheon != 'Egipcio'">{{dios.Pantheon}}</mat-chip>
-            <mat-chip color="accent" selected="true">{{dios.Roles}}</mat-chip>
-          </mat-chip-list>
-        </div>
-      </mat-card-content>
-    </mat-card>
   </mat-tab>
 </mat-tab-group>
 <mat-toolbar color="{{tabs.backgroundcolor}}">
