@@ -1,18 +1,18 @@
 import { Component } from '@angular/core';
 import { HttpModule, Http } from '@angular/http';
-//import { Router } from "@angular/router";
 import { HttpClient } from '@angular/common/http';
 import 'rxjs/add/operator/map'
 @Component({
-  selector: 'next-level-app',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  selector: 'pagina-principal',
+  templateUrl: './homePage.component.html',
+  styleUrls: ['./homePage.component.css']
 })
-export class AppComponent {
+export class HomePageComponent {
   constructor(private http: Http) {
   }
   tabs = { backgroundcolor: "primary" };
   campeones: any;
+  dioses: any;
   invocador: any;
   nombreInvocador: any;
   tituloApp = "Next Level";
@@ -31,9 +31,12 @@ export class AppComponent {
   onSelectChange(event) {
     if (event.index == 0) {
       this.tabs.backgroundcolor = "primary";
-    } else {
+    } else if(event.index == 1) {
       this.tabs.backgroundcolor = "accent";
       this.cargarCampeones();
+    }else if(event.index == 2){
+      this.tabs.backgroundcolor = "warn";
+      this.cargarDioses();
     }
   }
   detallesCampeon(id) {
@@ -43,6 +46,12 @@ export class AppComponent {
     this.http.get('http://localhost:4200/campeonesPaladins')
       .subscribe(
         res => this.campeones = res.json().campeones
+      );
+  }
+  cargarDioses() {
+    this.http.get('http://localhost:4200/diosesSmite')
+      .subscribe(
+        res => this.dioses = res.json().dioses
       );
   }
   buscarEstadisticas(nombreInvocador) {
