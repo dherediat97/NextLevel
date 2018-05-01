@@ -1,0 +1,13 @@
+.cardChampion, .cardGod {
+  max-width: 200px;
+  margin: 20px;
+  display: inline-block;
+  text-align: left;
+}
+.espacio-invisible-izquierda {
+  flex: 1 1 auto;
+}
+
+.cardChampion .championRol{
+  margin-top: 20px;
+}
