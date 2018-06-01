@@ -5,8 +5,8 @@ var express = require("express"),
   http = require("http"),
   https = require("https"),
   request = require('request'),
-  crypto = require('crypto');
-
+  crypto = require('crypto'),
+  colors = require('colors/safe');
 var sessionID = {
   "value": ""
 }
@@ -150,5 +150,5 @@ router.get('/leagueOfLegends/buscarInvocador/:nombre', function(req, res) {
 app.use(router);
 
 app.listen(9797, function() {
-  //console.log("API escuchando en http://localhost:9797");
+  console.log(colors.green("API escuchando en http://localhost:9797"));
 });
