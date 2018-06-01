@@ -6,60 +6,33 @@ var express = require("express"),
   https = require("https"),
   request = require('request'),
   crypto = require('crypto'),
+  util = require('./util/time/time.js'),
+  urls = require('./util/urls.js'),
   colors = require('colors/safe');
-var sessionID = {
-  "value": ""
-}
-var riotAPIKEY = "RGAPI-78647b29-9558-4849-805b-08b06a8e7823";
-var hirezAPIKEY = "2579";
-var hirezAUTHKEY = "A31B234EB23A4E3D8EE689E0FD4AD813";
-var urlBasePaladins = "http://api.paladins.com/paladinsapi.svc/";
-var urlBaseSmite = "http://api.smitegame.com/smiteapi.svc/";
-var urlBaseLOL = 'https://euw1.api.riotgames.com/lol/';
-app.use(bodyParser.urlencoded({
-  extended: false
-}));
-app.use(bodyParser.json());
-app.use(methodOverride());
-app.use(function(req, res, next) {
-  res.header('Access-Control-Allow-Origin', '*');
-  res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS');
-  res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization, Content-Length, X-Requested-With');
-  next();
-});
+  var sessionID = {
+    "value": ""
+  }
+  app.use(bodyParser.urlencoded({
+    extended: false
+  }));
+  app.use(bodyParser.json());
+  app.use(methodOverride());
+  app.use(function(req, res, next) {
+    res.header('Access-Control-Allow-Origin', '*');
+    res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS');
+    res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization, Content-Length, X-Requested-With');
+    next();
+  });
 
-var router = express.Router();
+  var router = express.Router();
 
-router.get('/', function(req, res) {
-  res.send("Bienvenido a Next Level API");
-});
+  router.get('/', function(req, res) {
+    res.send("Bienvenido a Next Level API");
+  });
 
-function getDateTime() {
-  var date = new Date();
-
-  var hour = date.getUTCHours();
-  hour = (hour < 10 ? "0" : "") + hour;
-
-  var min = date.getUTCMinutes();
-  min = (min < 10 ? "0" : "") + min;
-
-  var sec = date.getUTCSeconds();
-  sec = (sec < 10 ? "0" : "") + sec;
-
-  var year = date.getUTCFullYear();
-
-  var month = date.getUTCMonth() + 1;
-  month = (month < 10 ? "0" : "") + month;
-
-  var day = date.getUTCDate();
-  day = (day < 10 ? "0" : "") + day;
-
-  return year + month + day + hour + min + sec;
-
-}
 
 function createSignature(metodo) {
-  var data = hirezAPIKEY + metodo + hirezAUTHKEY + getDateTime();
+  var data = urls.hirezAPIKEY + metodo + urls.hirezAUTHKEY + getDateTime();
   var signature = crypto.createHash('md5').update(data).digest("hex");
   return signature;
 }
@@ -67,7 +40,7 @@ function createSignature(metodo) {
 function initSessionHIREZ() {
   var session_ID = "";
   var signature = createSignature('createsession');
-  var urlCreateSession = urlBasePaladins + 'createsessionjson/' + hirezAPIKEY + '/' + signature + '/' + getDateTime();
+  var urlCreateSession = urls.urlBasePaladins + 'createsessionjson/' + urls.hirezAPIKEY + '/' + signature + '/' + util.getDateTimeHiRez();
   http.get(urlCreateSession, (resp) => {
     var data = '';
 
@@ -95,7 +68,9 @@ router.get('/obtenerCampeones', function(req, res) {
 
   setTimeout(function(){
     var signature = createSignature('getchampions');
-    var urlObtenerCampeones = urlBasePaladins + 'getchampionsjson/' + hirezAPIKEY + '/' + signature + '/' + sessionID.value + '/' + getDateTime() + '/9';
+    var urlObtenerCampeones =
+    urls.urlBasePaladins + 'getchampionsjson/' + urls.hirezAPIKEY + '/' + signature +
+    '/' + sessionID.value +  '/'+  util.getDateTimeHiRez() +  '/9';
     var options = {
       url: urlObtenerCampeones,
       headers: {
@@ -116,7 +91,7 @@ router.get('/obtenerDioses', function(req, res) {
 
   setTimeout(function(){
     var signature = createSignature('getgods');
-    var urlObtenerDioses = urlBaseSmite + 'getgodsjson/' + hirezAPIKEY + '/' + signature + '/' + sessionID.value + '/' + getDateTime() + '/9';
+    var urlObtenerDioses = urls.urlBaseSmite + 'getgodsjson/' + urls.hirezAPIKEY + '/' + signature + '/' + sessionID.value + '/' + util.getDateTimeHiRez() + '/9';
     var options = {
       url: urlObtenerDioses,
       headers: {
@@ -136,10 +111,10 @@ router.get('/obtenerDioses', function(req, res) {
 router.get('/leagueOfLegends/buscarInvocador/:nombre', function(req, res) {
 
   var options = {
-    url: urlBase + 'summoner/v3/summoners/by-name/' + req.params.nombre,
+    url: urls.urlBaseLOL + 'summoner/v3/summoners/by-name/' + req.params.nombre,
     headers: {
       'Content-Type': 'application/json',
-      'X-Riot-Token': riotAPIKEY
+      'X-Riot-Token': urls.riotAPIKEY
     }
   };
   request(options, function(error, response, body) {
