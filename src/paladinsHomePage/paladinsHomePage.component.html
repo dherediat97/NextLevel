@@ -1,0 +1,21 @@
+<div>
+  <mat-card class="cardChampion" *ngFor='let campeon of campeones' (click)="detallesCampeon(campeon)">
+    <mat-card-header>
+      <mat-card-title>{{campeon.Name}}</mat-card-title>
+      <mat-card-subtitle>{{campeon.Title}}</mat-card-subtitle>
+    </mat-card-header>
+    <div *ngIf="campeon.OnFreeRotation == ''">
+      <img mat-card-lg-image style="background-size: cover;" src="{{campeon.ChampionIcon_URL}}" />
+    </div>
+    <div *ngIf="campeon.OnFreeRotation">
+      <img mat-card-lg-image class="cintaCampeonGratuito" style="background-size: cover;" src="{{campeon.ChampionIcon_URL}}" />
+    </div>
+    <mat-card-content>
+      <div class="championRol">
+        <mat-chip-list>
+          <mat-chip color="accent" selected="true">{{campeon.Roles}}</mat-chip>
+        </mat-chip-list>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>

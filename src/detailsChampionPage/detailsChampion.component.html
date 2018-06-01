@@ -60,6 +60,33 @@
       </mat-card-content>
     </mat-card>
   </mat-tab>
+  <mat-tab label="Smite">
+    <ng-template mat-tab-label>
+      Smite
+    </ng-template>
+    <mat-card class="cardGod" *ngFor='let dios of dioses' (click)="detallesCampeon(dios)">
+      <mat-card-header>
+        <mat-card-title>{{dios.Name}}</mat-card-title>
+        <mat-card-subtitle>{{dios.Title}}</mat-card-subtitle>
+      </mat-card-header>
+      <!-- <div *ngIf="dios.OnFreeRotation == ''">
+        <img mat-card-lg-image style="background-size: cover;" src="{{dios.ChampionIcon_URL}}" />
+      </div>
+      <div *ngIf="dios.OnFreeRotation">
+        <img mat-card-lg-image class="cintaDiosGratuito" style="background-size: cover;" src="{{dios.ChampionIcon_URL}}" />
+      </div> -->
+      <mat-card-content>
+        <div class="diosRol">
+          <mat-chip-list>
+            <mat-chip color="warn" selected="true" *ngIf="dios.Pantheon == 'Griego'">{{dios.Pantheon}}</mat-chip>
+            <mat-chip color="accent" selected="true" *ngIf="dios.Pantheon == 'Egipcio'">{{dios.Pantheon}}</mat-chip>
+            <mat-chip color="primary" selected="true" *ngIf="dios.Pantheon != 'Griego' && dios.Pantheon != 'Egipcio'">{{dios.Pantheon}}</mat-chip>
+            <mat-chip color="accent" selected="true">{{dios.Roles}}</mat-chip>
+          </mat-chip-list>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </mat-tab>
 </mat-tab-group>
 <mat-toolbar color="{{tabs.backgroundcolor}}">
   <span>{{tituloApp}} © - Creado y Desarrollado por dherediat97</span>

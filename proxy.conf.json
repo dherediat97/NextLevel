@@ -5,5 +5,13 @@
     "pathRewrite": {
       "^/campeonesPaladins": ""
     }
+  },
+  "/diosesSmite": {
+    "target": "http://192.168.1.131:9797/obtenerDioses",
+    "secure": false,
+    "pathRewrite": {
+      "^/diosesSmite": ""
+    }
+
   }
 }
