@@ -8,11 +8,11 @@
   },
   "scripts": {
     "ng": "ng",
-    "start": "ng serve --open --proxy-config proxy.conf.json",
+    "startLocal": "ng serve --open --proxy-config proxy.conf.json",
     "server": "node server/main.js",
     "build": "ng build --prod angular-cli-ghpages",
     "test": "ng test",
-    "startHeroku": "node server.js",
+    "start": "node server.js",
     "lint": "ng lint",
     "e2e": "ng e2e",
     "postinstall": "ng build --env=prod"
