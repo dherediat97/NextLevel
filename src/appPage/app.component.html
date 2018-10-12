@@ -1,1 +1,32 @@
+<mat-toolbar color="{{tabs.backgroundcolor}}">
+  <span>{{tituloApp}}</span>
+  <span class="espacio-invisible-izquierda"></span>
+  <span matTooltip="Activa el modo Noche" matSuffix>
+    <button aria-haspopup="true" mat-icon-button="" tabindex="-1" style="touch-action: none; -moz-user-select: none;" class="mat-icon-button" aria-describedby="cdk-describedby-message-0" cdk-describedby-host="">
+    <span class="mat-button-wrapper" >
+      <mat-icon class="mat-icon material-icons" role="img" aria-hidden="true">format_color_fill</mat-icon>
+    </span>
+  </button>
+  </span>
+</mat-toolbar>
+<nav mat-tab-nav-bar backgroundColor="{{tabs.backgroundcolor}}">
+  <a mat-tab-link label="League of Legends"  routerLink="/homePageLol">
+      League of Legends
+
+  </a>
+  <a mat-tab-link label="Paladins" routerLink="/homePagePaladins">
+
+      Paladins
+
+  </a>
+  <a mat-tab-link label="Smite"  routerLink="/homePageSmite">
+
+      Smite
+
+  </a>
+</nav>
+
 <router-outlet></router-outlet>
+<mat-toolbar id="footerHomePagina" color="{{tabs.backgroundcolor}}">
+  <span>{{tituloApp}} © - Creado y Desarrollado por dherediat97</span>
+</mat-toolbar>

@@ -32,7 +32,7 @@ var express = require("express"),
 
 
 function createSignature(metodo) {
-  var data = urls.hirezAPIKEY + metodo + urls.hirezAUTHKEY + getDateTime();
+  var data = urls.hirezAPIKEY + metodo + urls.hirezAUTHKEY + util.getDateTimeHiRez();
   var signature = crypto.createHash('md5').update(data).digest("hex");
   return signature;
 }
@@ -91,7 +91,7 @@ router.get('/obtenerDioses', function(req, res) {
 
   setTimeout(function(){
     var signature = createSignature('getgods');
-    var urlObtenerDioses = urls.urlBaseSmite + 'getgodsjson/' + urls.hirezAPIKEY + '/' + signature + '/' + sessionID.value + '/' + util.getDateTimeHiRez() + '/9';
+    var urlObtenerDioses = urls.urlBaseSmite + 'getgodsjson/' + urls.hirezAPIKEY + '/' + signature + '/' + sessionID.value + '/' + util.getDateTimeHiRez() + '/7';
     var options = {
       url: urlObtenerDioses,
       headers: {
