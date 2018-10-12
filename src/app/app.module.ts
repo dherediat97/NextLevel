@@ -9,7 +9,6 @@ import { HomePageSmiteComponent } from '../smiteHomePage/smiteHomePage.component
 import { DetailsChampionComponent } from '../detailsChampionPage/detailsChampion.component';
 import { AppComponent } from '../appPage/app.component';
 const appRoutes: Routes = [
-  { path: '**', redirectTo: 'homePage', pathMatch: 'full' },
   { path: 'champion/:id',component: DetailsChampionComponent },
   {
     path: 'homePage',
@@ -17,17 +16,17 @@ const appRoutes: Routes = [
     data: { title: 'Página Principal' }
   },
   {
-    path: 'homePage/homePageSmite',
+    path: 'homePageSmite',
     component: HomePageSmiteComponent,
     data: { title: 'Página Principal Smite' }
   },
   {
-    path: 'homePage/homePagePaladins',
+    path: 'homePagePaladins',
     component: HomePagePaladinsComponent,
     data: { title: 'Página Principal Paladins' }
   },
   {
-    path: 'homePage/homePageLol',
+    path: 'homePageLol',
     component: HomePageLolComponent,
     data: { title: 'Página Principal League Of Legends' }
   },

@@ -1,4 +1,4 @@
-function getDateTimeHiRez() {
+exports.getDateTimeHiRez = function() {
   var date = new Date();
 
   var hour = date.getUTCHours();

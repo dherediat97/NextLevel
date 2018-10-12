@@ -14,14 +14,15 @@ export class HomePageSmiteComponent implements OnInit{
   tituloApp = "Next Level";
 
   detallesCampeon(id) {
-  //  this.router.navigate(['championDetail',id]);
-  }
 
+  }
   ngOnInit(){
-    this.http.get('http://localhost:4200/diosesSmite')
+    this.obtenerDioses();
+  }
+  obtenerDioses(){
+    this.http.get('http://localhost:9797/obtenerDioses')
       .subscribe(
         res => this.dioses = res.json().dioses
       );
   }
-
 }
