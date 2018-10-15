@@ -91,7 +91,7 @@ router.get('/obtenerDioses', function(req, res) {
 
   setTimeout(function(){
     var signature = createSignature('getgods');
-    var urlObtenerDioses = urls.urlBaseSmite + 'getgodsjson/' + urls.hirezAPIKEY + '/' + signature + '/' + sessionID.value + '/' + util.getDateTimeHiRez() + '/7';
+    var urlObtenerDioses = urls.urlBaseSmite + 'getgodsjson/' + urls.hirezAPIKEY + '/' + signature + '/' + sessionID.value + '/' + util.getDateTimeHiRez() + '/9';
     var options = {
       url: urlObtenerDioses,
       headers: {

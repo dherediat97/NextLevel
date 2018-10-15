@@ -4,7 +4,7 @@ body {
   font-family: 'Roboto';
   margin: 0 auto;
 }
-.loading-page {
+/*.loading-page {
     height: 100%;
     width: 100%;
     position: absolute;
@@ -122,3 +122,4 @@ body {
         opacity: 0;
     }
 }
+*/

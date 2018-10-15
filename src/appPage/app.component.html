@@ -9,24 +9,13 @@
   </button>
   </span>
 </mat-toolbar>
-<nav mat-tab-nav-bar backgroundColor="{{tabs.backgroundcolor}}">
-  <a mat-tab-link label="League of Legends"  routerLink="/homePageLol">
-      League of Legends
-
-  </a>
-  <a mat-tab-link label="Paladins" routerLink="/homePagePaladins">
-
-      Paladins
-
-  </a>
-  <a mat-tab-link label="Smite"  routerLink="/homePageSmite">
-
-      Smite
-
-  </a>
+<nav mat-tab-nav-bar (selectedTabChange)="onSelectChange($event)">
+  <a mat-tab-link label="League of Legends"  routerLink="/homePageLol">League of Legends</a>
+  <a mat-tab-link label="Paladins" routerLink="/homePagePaladins">Paladins</a>
+  <a mat-tab-link label="Smite"  routerLink="/homePageSmite">Smite</a>
 </nav>
-
 <router-outlet></router-outlet>
-<mat-toolbar id="footerHomePagina" color="{{tabs.backgroundcolor}}">
+
+<mat-toolbar id="footerPaginaPrincipal" color="{{tabs.backgroundcolor}}">
   <span>{{tituloApp}} © - Creado y Desarrollado por dherediat97</span>
 </mat-toolbar>

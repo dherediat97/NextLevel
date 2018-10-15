@@ -9,4 +9,17 @@ export class AppComponent {
   }
   tabs = { backgroundcolor: "primary" };
   tituloApp = "Next Level";
+  onSelectChange(event) {
+    console.log(event)
+    if (event.index == 0) {
+      this.tabs.backgroundcolor = "primary";
+
+    } else if(event.index == 1) {
+      this.tabs.backgroundcolor = "accent";
+
+    }else if(event.index == 2){
+      this.tabs.backgroundcolor = "warn";
+
+    }
+  }
 }
