@@ -14,13 +14,13 @@ export class HomePagePaladinsComponent implements OnInit{
   tabs = { backgroundcolor: "primary" };
 
   detallesCampeon(id) {
-    
+
   }
   ngOnInit(){
     this.obtenerCampeonesPaladins();
   }
   obtenerCampeonesPaladins(){
-    this.http.get('http://localhost:9797/obtenerCampeones')
+    this.http.get('http://localhost:4200/campeonesPaladins')
       .subscribe(
         res => this.campeones = res.json().campeones
       );

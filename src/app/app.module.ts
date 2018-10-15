@@ -2,7 +2,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
-import { HomePageComponent } from '../homePage/homePage.component';
 import { HomePageLolComponent } from '../lolHomePage/lolHomePage.component';
 import { HomePagePaladinsComponent } from '../paladinsHomePage/paladinsHomePage.component';
 import { HomePageSmiteComponent } from '../smiteHomePage/smiteHomePage.component';
@@ -10,11 +9,6 @@ import { DetailsChampionComponent } from '../detailsChampionPage/detailsChampion
 import { AppComponent } from '../appPage/app.component';
 const appRoutes: Routes = [
   { path: 'champion/:id',component: DetailsChampionComponent },
-  {
-    path: 'homePage',
-    component: HomePageComponent,
-    data: { title: 'Página Principal' }
-  },
   {
     path: 'homePageSmite',
     component: HomePageSmiteComponent,
@@ -31,7 +25,7 @@ const appRoutes: Routes = [
     data: { title: 'Página Principal League Of Legends' }
   },
   { path: '',
-    redirectTo: '/homePage',
+    redirectTo: '/homePagePaladins',
     pathMatch: 'full'
   }
   //{ path: '**', component: PageNotFoundComponent }
@@ -83,7 +77,6 @@ import {
 @NgModule({
   declarations: [
     AppComponent,
-    HomePageComponent,
     HomePagePaladinsComponent,
     HomePageLolComponent,
     HomePageSmiteComponent,
