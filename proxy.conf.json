@@ -1,13 +1,13 @@
 {
   "/campeonesPaladins": {
-    "target": "http://192.168.1.35:8080/obtenerCampeones",
+    "target": "http://localhost:23316/obtenerCampeones",
     "secure": false,
     "pathRewrite": {
       "^/campeonesPaladins": ""
     }
   },
   "/diosesSmite": {
-    "target": "http://192.168.1.35:8080/obtenerDioses",
+    "target": "http://localhost:23316/obtenerDioses",
     "secure": false,
     "pathRewrite": {
       "^/diosesSmite": ""
