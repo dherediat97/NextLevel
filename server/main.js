@@ -15,6 +15,8 @@ var express = require("express"),
   app.use(bodyParser.urlencoded({
     extended: false
   }));
+  var port = process.env.PORT || 8080;
+  console.log("Puerto: " + port)
   app.use(bodyParser.json());
   app.use(methodOverride());
   app.use(function(req, res, next) {
@@ -51,7 +53,6 @@ function initSessionHIREZ() {
 
     resp.on('end', () => {
       var datosJSON = JSON.parse(data);
-      // console.log(datosJSON)
       if (datosJSON.session_id != null || datosJSON.session_id != "" || datosJSON.ret_msg == "Approved")
         session_ID = datosJSON.session_id;
       sessionID.value = session_ID;
@@ -124,6 +125,6 @@ router.get('/leagueOfLegends/buscarInvocador/:nombre', function(req, res) {
 
 app.use(router);
 
-app.listen(9797, function() {
-  console.log(colors.green("API escuchando en http://localhost:9797"));
+app.listen(port, function() {
+  console.log(colors.green("API escuchando en http://localhost:"+port));
 });
