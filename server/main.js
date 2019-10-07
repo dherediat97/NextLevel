@@ -89,25 +89,26 @@ router.get('/obtenerCampeones', function(req, res) {
 });
 router.get('/obtenerDioses', function(req, res) {
   initSessionHIREZ();
+  getDataHIREZ(sessionID,'getgods',res);
+});
 
+function getDataHIREZ(sessionID,signatureString,res){
   setTimeout(function(){
-    var signature = createSignature('getgods');
-    var urlObtenerDioses = urls.urlBaseSmite + 'getgodsjson/' + urls.hirezAPIKEY + '/' + signature + '/' + sessionID.value + '/' + util.getDateTimeHiRez() + '/9';
+    var signature = createSignature(signatureString);
+    var url = urls.urlBaseSmite + 'getgodsjson/' + urls.hirezAPIKEY + '/' + signature + '/' + sessionID.value + '/' + util.getDateTimeHiRez() + '/9';
     var options = {
-      url: urlObtenerDioses,
+      url: url,
       headers: {
         'Content-Type': 'application/json'
       }
     };
     request(options, function(error, response, body) {
-      var diosesJSON = {"dioses":""}
-      diosesJSON.dioses = JSON.parse(body);
+      var diosesJSON = {"dioses":JSON.parse(body)};
       res.send(diosesJSON);
     });
   },1000)
+}
 
-
-});
 
 router.get('/leagueOfLegends/buscarInvocador/:nombre', function(req, res) {
 

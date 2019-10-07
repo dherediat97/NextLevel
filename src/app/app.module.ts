@@ -25,7 +25,7 @@ const appRoutes: Routes = [
     data: { title: 'Página Principal League Of Legends' }
   },
   { path: '',
-    redirectTo: '/homePagePaladins',
+    redirectTo: '/homePageLol',
     pathMatch: 'full'
   }
   //{ path: '**', component: PageNotFoundComponent }
