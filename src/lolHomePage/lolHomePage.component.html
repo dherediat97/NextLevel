@@ -1,21 +1,21 @@
 <mat-grid-list cols="1" rowHeight="200px">
   <mat-grid-tile>
-    <mat-form-field color="{{tabs.backgroundcolor}}">
+    <!--<mat-form-field color="{{tabs.backgroundcolor}}">
       <input matInput placeholder="Nombre de Invocador" [(ngModel)]="nombreInvocador">
       <span matTooltip="Introduce aquí el nombre de tu invocador" matSuffix>
                 <mat-icon color="{{tabs.backgroundcolor}}" style="font-size:14px">help</mat-icon>
               </span>
     </mat-form-field>
     <mat-form-field color="{{tabs.backgroundcolor}}">
-      <!--<mat-select placeholder="Selecciona tu región">
+      <mat-select placeholder="Selecciona tu región">
         <mat-option *ngFor="let region of regiones" [value]="region.value">
           {{ region.viewValue }}
         </mat-option>
-      </mat-select>-->
+      </mat-select>
       <span matTooltip="Selecciona tu región asignada en el juego" matSuffix>
               <mat-icon color="{{tabs.backgroundcolor}}" style="font-size:14px">help</mat-icon>
           </span>
-    </mat-form-field>
+    </mat-form-field>-->
     <button mat-raised-button color="{{tabs.backgroundcolor}}" (click)="buscarEstadisticas(nombreInvocador)">Buscar estadisticas</button>
   </mat-grid-tile>
 </mat-grid-list>
