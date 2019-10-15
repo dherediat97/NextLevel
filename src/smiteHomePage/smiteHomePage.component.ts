@@ -20,7 +20,7 @@ export class HomePageSmiteComponent implements OnInit{
     this.obtenerDioses();
   }
   obtenerDioses(){
-    this.http.get('http://localhost:4200/diosesSmite')
+    this.http.get('https://nextlevelserver.herokuapp.com/diosesSmite')
       .subscribe(
         res => this.dioses = res.json().dioses
       );
