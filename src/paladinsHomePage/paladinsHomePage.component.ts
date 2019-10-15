@@ -20,7 +20,7 @@ export class HomePagePaladinsComponent implements OnInit{
     this.obtenerCampeonesPaladins();
   }
   obtenerCampeonesPaladins(){
-    this.http.get('https://nextlevelserver.herokuapp.com/campeonesPaladins')
+    this.http.get('https://nextlevelserver.herokuapp.com/obtenerCampeones')
       .subscribe(
         res => this.campeones = res.json().campeones
       );
