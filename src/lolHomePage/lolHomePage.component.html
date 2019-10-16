@@ -1,21 +1,16 @@
-<mat-grid-list cols="1" rowHeight="200px">
-  <mat-grid-tile>
-    <!--<mat-form-field color="{{tabs.backgroundcolor}}">
-      <input matInput placeholder="Nombre de Invocador" [(ngModel)]="nombreInvocador">
-      <span matTooltip="Introduce aquí el nombre de tu invocador" matSuffix>
-                <mat-icon color="{{tabs.backgroundcolor}}" style="font-size:14px">help</mat-icon>
-              </span>
-    </mat-form-field>
-    <mat-form-field color="{{tabs.backgroundcolor}}">
-      <mat-select placeholder="Selecciona tu región">
-        <mat-option *ngFor="let region of regiones" [value]="region.value">
-          {{ region.viewValue }}
-        </mat-option>
-      </mat-select>
-      <span matTooltip="Selecciona tu región asignada en el juego" matSuffix>
-              <mat-icon color="{{tabs.backgroundcolor}}" style="font-size:14px">help</mat-icon>
-          </span>
-    </mat-form-field>-->
-    <button mat-raised-button color="{{tabs.backgroundcolor}}" (click)="buscarEstadisticas(nombreInvocador)">Buscar estadisticas</button>
-  </mat-grid-tile>
-</mat-grid-list>
+<div>
+  <mat-card class="cardChampion" *ngFor='let campeon of campeones' (click)="detallesCampeon(campeon)">
+    <mat-card-header>
+      <mat-card-title>{{campeon.name|json}}</mat-card-title>
+      <mat-card-subtitle>{{campeon.title|json}}</mat-card-subtitle>
+    </mat-card-header>
+    <div>
+      <img mat-card-lg-image src="https://ddragon.leagueoflegends.com/cdn/9.20.1/img/champion/{{campeon.name|json}}" />
+    </div>
+    <mat-card-content>
+      <div class="championRol">
+        
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>

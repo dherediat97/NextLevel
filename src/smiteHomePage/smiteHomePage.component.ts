@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpModule, Http } from '@angular/http';
 import { HttpClient } from '@angular/common/http';
+import { environment } from '../environments/environment';
 import 'rxjs/add/operator/map'
 @Component({
   selector: 'pagina-principal-smite',
@@ -10,6 +11,7 @@ import 'rxjs/add/operator/map'
 export class HomePageSmiteComponent implements OnInit{
   constructor(private http: Http) {
   }
+  PROD:any = environment.production;
   dioses: any;
   tituloApp = "Next Level";
 
@@ -20,9 +22,15 @@ export class HomePageSmiteComponent implements OnInit{
     this.obtenerDioses();
   }
   obtenerDioses(){
-    this.http.get('https://nextlevelserver.herokuapp.com/obtenerDioses')
+    var url ="";
+    if(this.PROD){
+      url = 'https://nextlevelserver.herokuapp.com/';
+    }else{
+      url = 'http://localhost:8081/';
+    }
+    this.http.get(url+'smite/obtenerDioses')
       .subscribe(
         res => this.dioses = res.json().dioses
       );
-  }
+    }
 }
