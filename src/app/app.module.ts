@@ -8,7 +8,7 @@ import { HomePageSmiteComponent } from '../smiteHomePage/smiteHomePage.component
 import { DetailsChampionComponent } from '../detailsChampionPage/detailsChampion.component';
 import { AppComponent } from '../appPage/app.component';
 const appRoutes: Routes = [
-  { path: 'champion/:id',component: DetailsChampionComponent },
+  { path: 'champion/:nombre',component: DetailsChampionComponent },
   {
     path: 'homePageSmite',
     component: HomePageSmiteComponent,
