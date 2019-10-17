@@ -4,9 +4,35 @@
     <mat-card-subtitle>{{dios.Title}}</mat-card-subtitle>
   </mat-card-header>
   <mat-card-content>
+     <img mat-card-lg-image style="background-size: cover;" src="https://web2.hirez.com/smite/god-icons/{{dios.Name|lowercase}}.jpg" />
     <div class="diosRol">
       <mat-chip-list>
-        <mat-chip color="primary" selected="true">{{dios.Pantheon}}</mat-chip>
+        <mat-chip class="griego" *ngIf="dios.Pantheon == 'Greek'" selected="true">{{dios.Pantheon}}</mat-chip>
+
+        <mat-chip class="egipcio" *ngIf="dios.Pantheon == 'Egyptian'" selected="true">{{dios.Pantheon}}</mat-chip>
+
+        <mat-chip class="romano" *ngIf="dios.Pantheon == 'Roman'" selected="true">{{dios.Pantheon}}</mat-chip>
+
+        <mat-chip class="hindu" *ngIf="dios.Pantheon == 'Hindu'" selected="true">{{dios.Pantheon}}</mat-chip>
+
+        <mat-chip class="celta" *ngIf="dios.Pantheon == 'Celtic'" selected="true">{{dios.Pantheon}}</mat-chip>
+
+        <mat-chip class="japones" *ngIf="dios.Pantheon == 'Japanese'" selected="true">{{dios.Pantheon}}</mat-chip>
+
+        <mat-chip class="chino" *ngIf="dios.Pantheon == 'Chinese'" selected="true">{{dios.Pantheon}}</mat-chip>
+
+        <mat-chip class="nordico" *ngIf="dios.Pantheon == 'Norse'" selected="true">{{dios.Pantheon}}</mat-chip>
+
+        <mat-chip class="arturiano" *ngIf="dios.Pantheon == 'Arthurian'" selected="true">{{dios.Pantheon}}</mat-chip>
+
+        <mat-chip class="maya" *ngIf="dios.Pantheon == 'Mayan'" selected="true">{{dios.Pantheon}}</mat-chip>
+
+        <mat-chip class="yoruba" *ngIf="dios.Pantheon == 'Yoruba'" selected="true">{{dios.Pantheon}}</mat-chip>
+
+        <mat-chip class="eslavo" *ngIf="dios.Pantheon == 'Slave'" selected="true">{{dios.Pantheon}}</mat-chip>
+
+        <mat-chip class="polinesio" *ngIf="dios.Pantheon == 'Polynesian'" selected="true">{{dios.Pantheon}}</mat-chip>
+
         <mat-chip color="accent" selected="true">{{dios.Roles}}</mat-chip>
       </mat-chip-list>
     </div>

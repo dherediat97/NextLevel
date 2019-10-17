@@ -10,10 +10,8 @@
     "ng": "ng",
     "startLocal": "ng serve --open --proxy-config proxy.conf.json",
     "startProd": "ng serve --open",
-    "server": "node server/main.js",
     "build": "ng build --prod angular-cli-ghpages",
     "test": "ng test",
-    "start": "node server.js",
     "lint": "ng lint",
     "e2e": "ng e2e",
     "postinstall": "ng build --env=prod"
