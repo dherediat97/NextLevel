@@ -4,7 +4,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 Este proyecto ha sido generado con [Angular CLI](https://github.com/angular/angular-cli) versión 1.7.3.
 
 ## Development server / Desarrollo de la App
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Run `ng serve --open` for a dev server.The app launch automatically  the browser to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
 Para arrancar la app utilza el comando `ng serve --open`. Se te abrira en el navegador predeterminado en la ruta 'http://localhost:4200/'. Tiene livereload incorporado, cualquier cambio de código la app se actualizará con ese cambio.
 
@@ -27,3 +27,5 @@ Arranca `ng test` para lanzar las pruebas unitarias [Karma](https://karma-runner
 Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
 
 Arranca `ng e2e` para lanzar las pruebas end-to-end [Protractor](http://www.protractortest.org/).
+
+Copyright (c) 2019 David Heredia Tartajo
