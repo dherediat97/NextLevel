@@ -1,10 +1,69 @@
-.cardChampion, .cardGod {
+.cardGod {
   max-width: 200px;
   margin: 20px;
   display: inline-block;
   text-align: left;
 }
 
-.cardChampion .championRol{
+.cardGod .diosRol{
   margin-top: 20px;
+}
+
+
+.cardGod .egipcio{
+	background-color: yellow;
+	color: black;
+}
+
+.cardGod .romano{
+	background-color:#930000;
+	color: #f7c042;
+}
+
+.cardGod .griego{
+	background-color:blue;
+}
+
+.cardGod .maya{
+	background-color: green;
+}
+
+.cardGod .japones{
+	background-color:#aa2f3d;
+	color: #fff;
+}
+
+.cardGod .chino{
+	background-color:#770706;
+	color: #dabd7a;
+}
+
+.cardGod .arturiano{
+	background-color:#ffc324;
+	color: #fff;
+}
+
+.cardGod .joruba{
+	background-color: brown;
+	color: #fff;
+}
+.cardGod .hindu{
+	background-color: green;
+	color: #fff;
+}
+.cardGod .nordico{
+	background-color: #1F262A;
+	color: #fff;
+}
+.cardGod .celta{
+	background-color: violet;
+	color: #fff;
+}
+.cardGod .eslavo{
+	background-color: #ff2f5e;
+	color: #fff;
+}
+.cardGod .polinesio{
+	background-color: black;
+	color: #fff;
 }
