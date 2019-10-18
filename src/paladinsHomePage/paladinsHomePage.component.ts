@@ -16,8 +16,8 @@ export class HomePagePaladinsComponent implements OnInit{
   campeones: any;
   tabs = { backgroundcolor: "primary" };
 
-  detallesCampeon(nombre) {
-    this.router.navigate(['champion/'+ nombre]);
+  detallesCampeon(id) {
+    this.router.navigate(['champion/paladins/'+ id]);
   }
   ngOnInit(){
     this.cargando = true;

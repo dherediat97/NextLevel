@@ -1,13 +1,20 @@
-.cardChampion, .cardGod {
-  max-width: 200px;
-  margin: 20px;
-  display: inline-block;
-  text-align: left;
+.imagenCampeon{
+	width: 100px;
+	height: 100px;
 }
-.espacio-invisible-izquierda {
-  flex: 1 1 auto;
+.detallesCampeon{
+	float: right;
+	padding-right: 70px;
+	width: 30%;
 }
+.habilidadesCampeon{
+	float: left;
+	width: 60%;
+	padding-left: 50px;
+	padding-top: 30px;
+}
+.habilidad .habilidadCampeonImagen{
+	width: 100px;
+	height: 100px;
 
-.cardChampion .championRol{
-  margin-top: 20px;
 }
