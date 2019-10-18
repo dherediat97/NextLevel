@@ -16,7 +16,7 @@ export class HomePageLolComponent {
   tabs = { backgroundcolor: "primary" };
   nombreInvocador: any;
   cargando: any;
-
+  champions: any;
   detallesCampeon(id) {
   //  this.router.navigate(['championDetail',id]);
   }
@@ -39,9 +39,16 @@ export class HomePageLolComponent {
       url = 'http://localhost:8081/';
     }
     this.http.get(url+'lol/obtenerCampeones')
-      .subscribe(
-        res => this.campeones = res.json().campeones
-      );
-      this.cargando = false;
+    .map(res => res.json())
+    .subscribe(data => { 
+    this.champions = {type:data.type,version:data.version,champions:[]}      
+    let keyArr: any[] = Object.keys(data.data);
+    keyArr.forEach(key => {
+      this.champions.champions.push(data.data[key]);
+    });
+    this.campeones = this.champions.champions;
+    console.log(this.champions)
+  })
+  
   }
 }

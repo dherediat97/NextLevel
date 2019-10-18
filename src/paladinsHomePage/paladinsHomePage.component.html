@@ -1,5 +1,5 @@
 <div>
-  <mat-card class="cardChampion" *ngFor='let campeon of campeones' (click)="detallesCampeon(campeon.Name)">
+  <mat-card class="cardChampion" *ngFor='let campeon of campeones' (click)="detallesCampeon(campeon.id)">
     <mat-card-header>
       <mat-card-title>{{campeon.Name}}</mat-card-title>
       <mat-card-subtitle>{{campeon.Title}}</mat-card-subtitle>
