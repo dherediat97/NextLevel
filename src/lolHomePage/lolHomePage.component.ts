@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { HttpModule, Http } from '@angular/http';
 import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
 import 'rxjs/add/operator/map'
 import { environment } from '../environments/environment';
 @Component({
@@ -10,15 +11,15 @@ import { environment } from '../environments/environment';
 })
 export class HomePageLolComponent {
   PROD:any = environment.production;
-  constructor(private http: Http) {
+  constructor(private http: Http, private router: Router) {
   }
   campeones: any;
   tabs = { backgroundcolor: "primary" };
   nombreInvocador: any;
   cargando: any;
   champions: any;
-  detallesCampeon(id) {
-  //  this.router.navigate(['championDetail',id]);
+  detallesCampeon(nombreCampeon) {
+    this.router.navigate(['champion/lol/'+ nombreCampeon]);
   }
 
   buscarEstadisticas(nombreInvocador) {
@@ -47,7 +48,6 @@ export class HomePageLolComponent {
       this.champions.champions.push(data.data[key]);
     });
     this.campeones = this.champions.champions;
-    console.log(this.champions)
   })
   
   }

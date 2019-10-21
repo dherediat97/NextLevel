@@ -7,6 +7,7 @@ import { HomePagePaladinsComponent } from '../paladinsHomePage/paladinsHomePage.
 import { HomePageSmiteComponent } from '../smiteHomePage/smiteHomePage.component';
 import { DetailsChampionComponent } from '../detailsChampionPage/detailsChampion.component';
 import { AppComponent } from '../appPage/app.component';
+import { NgImageSliderModule } from 'ng-image-slider';
 const appRoutes: Routes = [
   { path: 'champion/:juego/:id',component: DetailsChampionComponent },
   {
@@ -121,6 +122,7 @@ import {
     MatToolbarModule,
     MatTooltipModule,
     ReactiveFormsModule,
+    NgImageSliderModule,
     RouterModule.forRoot(
       appRoutes,
       { enableTracing: false } // <-- debugging purposes only

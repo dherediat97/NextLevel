@@ -9,20 +9,47 @@ import { environment } from '../environments/environment';
   styleUrls: ['./detailsChampion.component.css']
 })
 export class DetailsChampionComponent {
+  
+  //Riot Games
+  nombreCampeon:any;
+
+  //HiRez Games
   idCampeon: any;
   PROD:any = environment.production;
   campeon: any;
   skinsCampeon: any;
+  juego: any;
+  skinsImageObject: any;
+
   constructor(private http: Http, private router: Router,private route: ActivatedRoute) {
     this.idCampeon = this.route.snapshot.params['id'];
+    this.juego = this.route.snapshot.params['juego'];
   }
   
   ngOnInit(){
-    this.idCampeon = this.route.snapshot.params['id'];
-    this.cargarDatosCampeon();
+    this.juego = this.route.snapshot.params['juego'];
+    if(this.juego=='paladins'){
+      this.idCampeon = this.route.snapshot.params['id'];
+      this.cargarDatosCampeonPaladins();
+    }else if(this.juego=='smite'){
+      this.idCampeon = this.route.snapshot.params['id'];
+      this.cargarDatosCampeonLol();
+    }else if(this.juego=='lol'){
+      this.nombreCampeon = this.route.snapshot.params['id'];
+      this.cargarDatosCampeonLol();
+    }    
   }
-
-  cargarDatosCampeon(){
+  cargarDatosCampeonLol(){
+   this.nombreCampeon = this.route.snapshot.params['id'];
+   this.obtenerCampeonLol(this.nombreCampeon);
+   this.obtenerSkinCampeonLol(this.nombreCampeon);
+  }
+  cargarDatosCampeonSmite(){
+   this.idCampeon = this.route.snapshot.params['id'];
+   this.obtenerCampeonPaladins(this.idCampeon);
+   this.obtenerSkinCampeonPaladins(this.idCampeon);
+  }
+  cargarDatosCampeonPaladins(){
    this.idCampeon = this.route.snapshot.params['id'];
    this.obtenerCampeonPaladins(this.idCampeon);
    this.obtenerSkinCampeonPaladins(this.idCampeon);
@@ -55,5 +82,23 @@ export class DetailsChampionComponent {
         );
       
     }
+  }
+  obtenerCampeonLol(nombreCampeon){
+    if(nombreCampeon != undefined){
+      var url ="";
+        if(this.PROD){
+          url = 'https://nextlevelserver.herokuapp.com/';
+        }else{
+          url = 'http://localhost:8081/';
+        }
+         //Cojer Datos Basicos del campeon (img y nombre)
+        this.http.get(url+'lol/obtenerCampeon/'+nombreCampeon)
+          .subscribe(
+            res => this.campeon = res.json()
+        );
+    }
+  }
+  obtenerSkinCampeonLol(nombreCampeon){
+    
   }
 }
