@@ -32,8 +32,8 @@ export class DetailsChampionComponent {
       this.idCampeon = this.route.snapshot.params['id'];
       this.cargarDatosCampeonPaladins();
     }else if(this.juego=='smite'){
-      this.idCampeon = this.route.snapshot.params['id'];
-      this.cargarDatosCampeonLol();
+      this.nombreCampeon = this.route.snapshot.params['id'];
+      this.cargarDatosCampeonSmite();
     }else if(this.juego=='lol'){
       this.nombreCampeon = this.route.snapshot.params['id'];
       this.cargarDatosCampeonLol();
@@ -46,15 +46,26 @@ export class DetailsChampionComponent {
   }
   cargarDatosCampeonSmite(){
    this.idCampeon = this.route.snapshot.params['id'];
-   this.obtenerCampeonPaladins(this.idCampeon);
-   this.obtenerSkinCampeonPaladins(this.idCampeon);
+   this.obtenerCampeonSmite(this.idCampeon);
+   //this.obtenerSkinCampeonSmite(this.idCampeon);
   }
   cargarDatosCampeonPaladins(){
    this.idCampeon = this.route.snapshot.params['id'];
    this.obtenerCampeonPaladins(this.idCampeon);
    this.obtenerSkinCampeonPaladins(this.idCampeon);
   }
-
+  obtenerSkinCampeonSmite(idCampeon){
+    var url ="";
+    if(this.PROD){
+      url = 'https://nextlevelserver.herokuapp.com/';
+    }else{
+      url = 'http://localhost:8081/';
+    }
+    this.http.get(url+'smite/obtenerSkinCampeon/'+idCampeon)
+      .subscribe(
+        res => this.skinsCampeon = res.json().skin
+    );
+  }
   obtenerSkinCampeonPaladins(idCampeon){
     var url ="";
     if(this.PROD){
@@ -62,10 +73,26 @@ export class DetailsChampionComponent {
     }else{
       url = 'http://localhost:8081/';
     }
-    this.http.get(url+'paladins/obtenerSkinCampeon/'+idCampeon)
+    this.http.get(url+'paladins/obtenerDios/'+idCampeon)
       .subscribe(
         res => this.skinsCampeon = res.json().skin
     );
+  }
+  obtenerCampeonSmite(idCampeon){
+    if(idCampeon != undefined){
+      var url ="";
+        if(this.PROD){
+          url = 'https://nextlevelserver.herokuapp.com/';
+        }else{
+          url = 'http://localhost:8081/';
+        }
+         //Cojer Datos Basicos del campeon (img y nombre)
+        this.http.get(url+'smite/obtenerDios/'+idCampeon)
+          .subscribe(
+            res => this.campeon = res.json().dios[0]
+        );
+      
+    }
   }
   obtenerCampeonPaladins(idCampeon){
     if(idCampeon != undefined){
