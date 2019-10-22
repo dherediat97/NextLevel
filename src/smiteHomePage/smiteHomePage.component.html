@@ -1,37 +1,39 @@
-<mat-card class="cardGod" *ngFor='let dios of dioses' (click)="detallesCampeon(dios)">
+<mat-card class="cardGod" *ngFor='let dios of dioses' (click)="detallesCampeon(dios.id)">
   <mat-card-header>
     <mat-card-title>{{dios.Name}}</mat-card-title>
     <mat-card-subtitle>{{dios.Title}}</mat-card-subtitle>
   </mat-card-header>
   <mat-card-content>
-     <img mat-card-lg-image style="background-size: cover;" src="https://web2.hirez.com/smite/god-icons/{{dios.Name|lowercase}}.jpg" />
+     <img mat-card-lg-image style="background-size: cover;" src="{{dios.godIcon_URL}}" />
     <div class="diosRol">
       <mat-chip-list>
-        <mat-chip class="griego" *ngIf="dios.Pantheon == 'Greek'" selected="true">{{dios.Pantheon}}</mat-chip>
+        <mat-chip class="griego" *ngIf="dios.Pantheon == 'Griego'" selected="true">{{dios.Pantheon}}</mat-chip>
 
-        <mat-chip class="egipcio" *ngIf="dios.Pantheon == 'Egyptian'" selected="true">{{dios.Pantheon}}</mat-chip>
+        <mat-chip class="egipcio" *ngIf="dios.Pantheon == 'Egipcio'" selected="true">{{dios.Pantheon}}</mat-chip>
 
-        <mat-chip class="romano" *ngIf="dios.Pantheon == 'Roman'" selected="true">{{dios.Pantheon}}</mat-chip>
+        <mat-chip class="romano" *ngIf="dios.Pantheon == 'Romano'" selected="true">{{dios.Pantheon}}</mat-chip>
+        
+        <mat-chip class="vudu" *ngIf="dios.Pantheon == 'Vudú'" selected="true">{{dios.Pantheon}}</mat-chip>
 
-        <mat-chip class="hindu" *ngIf="dios.Pantheon == 'Hindu'" selected="true">{{dios.Pantheon}}</mat-chip>
+        <mat-chip class="hindu" *ngIf="dios.Pantheon == 'Hindú'" selected="true">{{dios.Pantheon}}</mat-chip>
 
-        <mat-chip class="celta" *ngIf="dios.Pantheon == 'Celtic'" selected="true">{{dios.Pantheon}}</mat-chip>
+        <mat-chip class="celta" *ngIf="dios.Pantheon == 'Celta'" selected="true">{{dios.Pantheon}}</mat-chip>
 
-        <mat-chip class="japones" *ngIf="dios.Pantheon == 'Japanese'" selected="true">{{dios.Pantheon}}</mat-chip>
+        <mat-chip class="japones" *ngIf="dios.Pantheon == 'Japonés'" selected="true">{{dios.Pantheon}}</mat-chip>
 
-        <mat-chip class="chino" *ngIf="dios.Pantheon == 'Chinese'" selected="true">{{dios.Pantheon}}</mat-chip>
+        <mat-chip class="chino" *ngIf="dios.Pantheon == 'Chino'" selected="true">{{dios.Pantheon}}</mat-chip>
 
-        <mat-chip class="nordico" *ngIf="dios.Pantheon == 'Norse'" selected="true">{{dios.Pantheon}}</mat-chip>
+        <mat-chip class="nordico" *ngIf="dios.Pantheon == 'Nórdico'" selected="true">{{dios.Pantheon}}</mat-chip>
 
-        <mat-chip class="arturiano" *ngIf="dios.Pantheon == 'Arthurian'" selected="true">{{dios.Pantheon}}</mat-chip>
+        <mat-chip class="arturiano" *ngIf="dios.Pantheon == 'Arturiano'" selected="true">{{dios.Pantheon}}</mat-chip>
 
-        <mat-chip class="maya" *ngIf="dios.Pantheon == 'Mayan'" selected="true">{{dios.Pantheon}}</mat-chip>
+        <mat-chip class="maya" *ngIf="dios.Pantheon == 'Maya'" selected="true">{{dios.Pantheon}}</mat-chip>
 
         <mat-chip class="yoruba" *ngIf="dios.Pantheon == 'Yoruba'" selected="true">{{dios.Pantheon}}</mat-chip>
 
-        <mat-chip class="eslavo" *ngIf="dios.Pantheon == 'Slave'" selected="true">{{dios.Pantheon}}</mat-chip>
+        <mat-chip class="eslavo" *ngIf="dios.Pantheon == 'Eslavo'" selected="true">{{dios.Pantheon}}</mat-chip>
 
-        <mat-chip class="polinesio" *ngIf="dios.Pantheon == 'Polynesian'" selected="true">{{dios.Pantheon}}</mat-chip>
+        <mat-chip class="polinesio" *ngIf="dios.Pantheon == 'Polinesio'" selected="true">{{dios.Pantheon}}</mat-chip>
 
         <mat-chip color="accent" selected="true">{{dios.Roles}}</mat-chip>
       </mat-chip-list>
