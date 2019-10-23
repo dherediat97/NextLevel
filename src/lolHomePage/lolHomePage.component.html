@@ -1,18 +1,13 @@
-<div>
+<div  style="margin:0 auto;display:block;" >
   <mat-card class="cardChampion" *ngFor='let campeon of campeones' (click)="detallesCampeon(campeon.name)">
     <mat-card-header>
       <mat-card-title>{{campeon.name}}</mat-card-title>
       <mat-card-subtitle>{{campeon.title}}</mat-card-subtitle>
     </mat-card-header>
     <div>
-      <img mat-card-xs-image src="https://ddragon.leagueoflegends.com/cdn/9.20.1/img/champion/{{campeon.id}}.png" />
+      <img  style="margin:0 auto;display:block;"  mat-card-xs-image src="https://ddragon.leagueoflegends.com/cdn/9.20.1/img/champion/{{campeon.id}}.png" />
     </div>
     <mat-card-content>
-       <div class="championRol">
-        <mat-chip-list *ngFor='let rol of campeon.tags'>
-          <mat-chip color="accent" selected="true">{{rol}}</mat-chip>
-        </mat-chip-list>
-      </div>
     </mat-card-content>
   </mat-card>
 </div>

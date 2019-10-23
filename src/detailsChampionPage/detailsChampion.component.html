@@ -102,23 +102,31 @@
       </div>
     </div>
     <mat-tab-group>
-        <mat-tab label="Habilidades" color="accent">
-            <div class="habilidadesCampeon">
+        <mat-tab label="Habilidades">
+            <div class="contenedorCampeon">
                 <div class="pasivaCampeon">
                   Pasiva: {{campeon.passive.name}}
                   <img src="http://ddragon.leagueoflegends.com/cdn/9.20.1/img/passive/{{campeon.passive.image.full}}"/>
                   <p>{{campeon.passive.description}}</p>
                 </div>
                 <div *ngFor="let habilidadCampeon of campeon.spells">
-                  {{habilidadCampeon.id}}:{{habilidadCampeon.name}}
+                  {{habilidadCampeon.name}}:
                   <img src="http://ddragon.leagueoflegends.com/cdn/9.20.1/img/spell/{{habilidadCampeon.id}}.png"/>
                   <p>{{habilidadCampeon.description}}</p>
                 </div> 
               </div>
         </mat-tab>
-        <mat-tab label="Detalles"></mat-tab>
-        <mat-tab label="Skins"></mat-tab>
+        <mat-tab label="Detalles">
+          
+
+
+        </mat-tab>
+        <mat-tab label="Skins">
+            <div class="contenedorCampeon">
+                Skins:<ng-image-slider [images]="skinsImageObject" #nav></ng-image-slider>
+            </div>
+        </mat-tab>
       </mat-tab-group>
-        <!--Skins:<ng-image-slider [images]="skinsImageObject" #nav></ng-image-slider>-->
+        
     </div>
   </div>
