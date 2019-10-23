@@ -1,4 +1,7 @@
 mat-toolbar#footerPaginaPrincipal{
-  position: fixed;
-  bottom: 0;
+  position: relative;
+  bottom: 100;
+  left: 0;
+  right: 0;
+  z-index: 10000;
 }

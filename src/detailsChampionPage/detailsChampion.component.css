@@ -5,9 +5,10 @@
 .detallesCampeon{
 	float: right;
 	padding-right: 70px;
+	padding-top: 47.5px;
 	width: 30%;
 }
-.habilidadesCampeon{
+.contenedorCampeon{
 	float: left;
 	width: 60%;
 	padding-left: 50px;

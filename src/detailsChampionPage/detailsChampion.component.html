@@ -101,32 +101,32 @@
         <span>{{campeon.lore}}</span>
       </div>
     </div>
-    <div class="habilidadesCampeon">
-      <!--Habilidades:-->
-     <!-- <div class="habilidad">
-        <h3>{{campeon.Ability1}}</h3>
-        <img class="habilidadCampeonImagen" src="{{campeon.Ability_1.URL}}"/>
-        <p>{{campeon.Ability_1.Description}}</p>
+    <mat-tab-group>
+        <mat-tab label="Habilidades">
+            <div class="contenedorCampeon">
+                <div class="pasivaCampeon">
+                  Pasiva: {{campeon.passive.name}}
+                  <img src="http://ddragon.leagueoflegends.com/cdn/9.20.1/img/passive/{{campeon.passive.image.full}}"/>
+                  <p>{{campeon.passive.description}}</p>
+                </div>
+                <div *ngFor="let habilidadCampeon of campeon.spells">
+                  {{habilidadCampeon.name}}:
+                  <img src="http://ddragon.leagueoflegends.com/cdn/9.20.1/img/spell/{{habilidadCampeon.id}}.png"/>
+                  <p>{{habilidadCampeon.description}}</p>
+                </div> 
+              </div>
+        </mat-tab>
+        <mat-tab label="Detalles">
+          
+
+
+        </mat-tab>
+        <mat-tab label="Skins">
+            <div class="contenedorCampeon">
+                Skins:<ng-image-slider [images]="skinsImageObject" #nav></ng-image-slider>
+            </div>
+        </mat-tab>
+      </mat-tab-group>
         
-      </div>
-      <div class="habilidad">
-        <h3>{{campeon.Ability2}}</h3>
-        <img class="habilidadCampeonImagen" src="{{campeon.Ability_2.URL}}"/>
-        <p>{{campeon.Ability_2.Description}}</p>
-        
-      </div>
-      <div class="habilidad">
-        <h3>{{campeon.Ability3}}</h3>
-        <img class="habilidadCampeonImagen" src="{{campeon.Ability_3.URL}}"/>
-        <p>{{campeon.Ability_3.Description}}</p>
-        
-      </div>
-      <div class="habilidad">
-        <h3>{{campeon.Ability4}}</h3>
-        <img class="habilidadCampeonImagen" src="{{campeon.Ability_4.URL}}"/>
-        <p>{{campeon.Ability_4.Description}}</p>-->
-        Skins:
-          <ng-image-slider [images]="skinsImageObject" #nav></ng-image-slider>
-      </div>
     </div>
   </div>
