@@ -104,26 +104,44 @@
     <mat-tab-group>
         <mat-tab label="Habilidades">
             <div class="contenedorCampeon">
-                <div class="pasivaCampeon">
-                  Pasiva: {{campeon.passive.name}}
-                  <img src="http://ddragon.leagueoflegends.com/cdn/9.20.1/img/passive/{{campeon.passive.image.full}}"/>
-                  <p>{{campeon.passive.description}}</p>
+                <div class="pasivaCampeon" style="padding-top: 20px;padding-bottom: 20px;">
+                  <div>Pasiva: {{campeon.passive.name}}</div>
+                  <div style="display: inline-block; vertical-align: top;">
+                      <img style="width: 100%;" src="http://ddragon.leagueoflegends.com/cdn/9.20.1/img/passive/{{campeon.passive.image.full}}"/>
+                  </div>
+                  <div style="width: 70%;display: inline-block;margin-left: 50px;text-align: justify;">{{campeon.passive.description}}</div>
                 </div>
-                <div *ngFor="let habilidadCampeon of campeon.spells">
-                  {{habilidadCampeon.name}}:
-                  <img src="http://ddragon.leagueoflegends.com/cdn/9.20.1/img/spell/{{habilidadCampeon.id}}.png"/>
-                  <p>{{habilidadCampeon.description}}</p>
+                <div *ngFor="let habilidadCampeon of campeon.spells" style="padding-top: 20px;padding-bottom: 20px;">
+                  <div>{{habilidadCampeon.name}}:</div>
+                  <div style="display: inline-block; vertical-align: top;">
+                    <img src="http://ddragon.leagueoflegends.com/cdn/9.20.1/img/spell/{{habilidadCampeon.id}}.png"/>
+                  </div>
+                  <div style="width: 70%;display: inline-block;margin-left: 50px;text-align: justify;">
+                    {{habilidadCampeon.description}}
+                  </div>
                 </div> 
               </div>
         </mat-tab>
         <mat-tab label="Detalles">
-          
-
-
+            <div class="contenedorCampeon">
+            Consejos como aliado:
+            <ul>
+              <li *ngFor="let consejosAliado of campeon.allytips">
+                {{consejosAliado}}
+              </li>
+            </ul>
+            Consejos como enemigo:
+            <ul>
+              <li *ngFor="let consejosEnemigo of campeon.enemytips">
+                {{consejosEnemigo}}
+              </li>
+            </ul>
+            </div>
         </mat-tab>
         <mat-tab label="Skins">
             <div class="contenedorCampeon">
-                Skins:<ng-image-slider [images]="skinsImageObject" #nav></ng-image-slider>
+                Skins:
+                <!--<ng-image-slider [images]="skinsImageObject" #nav></ng-image-slider>-->
             </div>
         </mat-tab>
       </mat-tab-group>

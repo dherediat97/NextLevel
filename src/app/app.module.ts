@@ -8,6 +8,7 @@ import { HomePageSmiteComponent } from '../smiteHomePage/smiteHomePage.component
 import { DetailsChampionComponent } from '../detailsChampionPage/detailsChampion.component';
 import { AppComponent } from '../appPage/app.component';
 import { NgImageSliderModule } from 'ng-image-slider';
+import * as d3 from "d3";
 const appRoutes: Routes = [
   { path: 'champion/:juego/:id',component: DetailsChampionComponent },
   {
