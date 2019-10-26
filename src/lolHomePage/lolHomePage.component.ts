@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
-import { HttpModule, Http } from '@angular/http';
-import { HttpClient } from '@angular/common/http';
+import { Http } from '@angular/http';
 import { Router } from '@angular/router';
 import 'rxjs/add/operator/map'
 import { environment } from '../environments/environment';
@@ -14,6 +13,7 @@ export class HomePageLolComponent {
   constructor(private http: Http, private router: Router) {
   }
   campeones: any;
+  campeonesGratuitos: any;
   tabs = { backgroundcolor: "primary" };
   nombreInvocador: any;
   cargando: any;
@@ -31,6 +31,7 @@ export class HomePageLolComponent {
   ngOnInit(){
     this.cargando =true;
     this.obtenerCampeonesLol();
+    this.obtenerCampeonesGratuitos();
   }
   obtenerCampeonesLol(){
     var url ="";
@@ -50,5 +51,18 @@ export class HomePageLolComponent {
     this.campeones = this.champions.champions;
   })
   
+  }
+  obtenerCampeonesGratuitos(){
+    var url ="";
+    if(this.PROD){
+      url = 'https://nextlevelserver.herokuapp.com/';
+    }else{
+      url = 'http://localhost:8081/';
+    }
+    this.http.get(url+'lol/obtenerCampeonesGratuitos')
+    .map(res => res.json())
+    .subscribe(data => { 
+    this.campeonesGratuitos = data;
+  })
   }
 }
