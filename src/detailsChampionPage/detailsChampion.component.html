@@ -1,39 +1,51 @@
 <div *ngIf="juego=='paladins'">
   <div *ngIf="campeon">
     <div class="detallesCampeon">
-      <h1>{{campeon.Name}}</h1>
-
+      <h3>{{campeon.Name}} - {{campeon.Title}}</h3>
       <img class="imagenCampeon" src="{{campeon.ChampionIcon_URL}}"/>
-
       <div class="campeonLore">
         Lore:
         <span>{{campeon.Lore}}</span>
       </div>
     </div>
-    <div class="habilidadesCampeon">
+    <div class="contenedorCampeon">
       Habilidades:
       <div class="habilidad">
-        <h3>{{campeon.Ability1}}</h3>
-        <img class="habilidadCampeonImagen" src="{{campeon.Ability_1.URL}}"/>
-        <p>{{campeon.Ability_1.Description}}</p>
+        <div>{{campeon.Ability1}}</div>
+        <div style="display: inline-block; vertical-align: top;">
+          <img class="habilidadCampeonImagen" src="{{campeon.Ability_1.URL}}"/>
+        </div>
+        <div style="width: 70%;display: inline-block;margin-left: 50px;text-align: justify;">
+          {{campeon.Ability_1.Description}}
+        </div>
+      </div>
+      <div class="habilidad">
+        <div>{{campeon.Ability2}}</div>
+        <div style="display: inline-block; vertical-align: top;">
+          <img class="habilidadCampeonImagen" src="{{campeon.Ability_2.URL}}"/>
+        </div>
+        <div style="width: 70%;display: inline-block;margin-left: 50px;text-align: justify;">
+          {{campeon.Ability_2.Description}}
+        </div>
+      </div>
+      <div class="habilidad">
+        <div>{{campeon.Ability3}}</div>
+        <div style="display: inline-block; vertical-align: top;">
+          <img class="habilidadCampeonImagen" src="{{campeon.Ability_3.URL}}"/>
+        </div>
+        <div style="width: 70%;display: inline-block;margin-left: 50px;text-align: justify;">
+          {{campeon.Ability_3.Description}}
+        </div>
         
       </div>
       <div class="habilidad">
-        <h3>{{campeon.Ability2}}</h3>
-        <img class="habilidadCampeonImagen" src="{{campeon.Ability_2.URL}}"/>
-        <p>{{campeon.Ability_2.Description}}</p>
-        
-      </div>
-      <div class="habilidad">
-        <h3>{{campeon.Ability3}}</h3>
-        <img class="habilidadCampeonImagen" src="{{campeon.Ability_3.URL}}"/>
-        <p>{{campeon.Ability_3.Description}}</p>
-        
-      </div>
-      <div class="habilidad">
-        <h3>{{campeon.Ability4}}</h3>
-        <img class="habilidadCampeonImagen" src="{{campeon.Ability_4.URL}}"/>
-        <p>{{campeon.Ability_4.Description}}</p>
+        <div>{{campeon.Ability4}}</div>
+        <div style="display: inline-block; vertical-align: top;">
+          <img class="habilidadCampeonImagen" src="{{campeon.Ability_4.URL}}"/>
+        </div>
+        <div style="width: 70%;display: inline-block;margin-left: 50px;text-align: justify;">
+          {{campeon.Ability_4.Description}}
+        </div>
         
       </div>
       <!--<div *ngFor='let skinCampeon of skinsCampeon'>
@@ -45,7 +57,7 @@
 <div *ngIf="juego=='smite'">
   <div *ngIf="campeon">
     <div class="detallesCampeon">
-      <h1>{{campeon.Name}} - {{campeon.Title}}</h1>
+      <h3>{{campeon.Name}} - {{campeon.Title}}</h3>
 
       <img class="imagenCampeon" src="{{campeon.godIcon_URL}}"/>
 
@@ -56,30 +68,43 @@
         <span>{{campeon.Lore}}</span>
       </div>
     </div>
-    <div class="habilidadesCampeon">
+    <div class="contenedorCampeon">
       Habilidades:
       <div class="habilidad">
-        <h3>{{campeon.Ability1}}</h3>
-        <img class="habilidadCampeonImagen" src="{{campeon.Ability_1.URL}}"/>
-        <p>{{campeon.Ability_1.Description.itemDescription.description}}</p>
+        <div>{{campeon.Ability1}}</div>
+        <div style="display: inline-block; vertical-align: top;">
+          <img class="habilidadCampeonImagen" src="{{campeon.Ability_1.URL}}"/>
+        </div>
+        <div style="width: 70%;display: inline-block;margin-left: 50px;text-align: justify;">
+          {{campeon.Ability_1.Description.itemDescription.description}}
+        </div>
       </div>
       <div class="habilidad">
-        <h3>{{campeon.Ability2}}</h3>
-        <img class="habilidadCampeonImagen" src="{{campeon.Ability_2.URL}}"/>
-        <p>{{campeon.Ability_2.Description.itemDescription.description}}</p>
-        
+        <div>{{campeon.Ability2}}</div>
+        <div style="display: inline-block; vertical-align: top;">
+          <img class="habilidadCampeonImagen" src="{{campeon.Ability_2.URL}}"/>
+        </div>
+        <div style="width: 70%;display: inline-block;margin-left: 50px;text-align: justify;">
+          {{campeon.Ability_2.Description.itemDescription.description}}
+        </div>
       </div>
       <div class="habilidad">
-        <h3>{{campeon.Ability3}}</h3>
-        <img class="habilidadCampeonImagen" src="{{campeon.Ability_3.URL}}"/>
-        <p>{{campeon.Ability_1.Description.itemDescription.description}}</p>
-        
+        <div>{{campeon.Ability3}}</div>
+        <div style="display: inline-block; vertical-align: top;">
+          <img class="habilidadCampeonImagen" src="{{campeon.Ability_3.URL}}"/>
+        </div>
+        <div style="width: 70%;display: inline-block;margin-left: 50px;text-align: justify;">
+          {{campeon.Ability_1.Description.itemDescription.description}}
+        </div>
       </div>
       <div class="habilidad">
-        <h3>{{campeon.Ability4}}</h3>
-        <img class="habilidadCampeonImagen" src="{{campeon.Ability_4.URL}}"/>
-        <p>{{campeon.Ability_4.Description.itemDescription.description}}</p>
-        
+        <div>{{campeon.Ability4}}</div>
+        <div style="display: inline-block; vertical-align: top;">
+          <img class="habilidadCampeonImagen" src="{{campeon.Ability_4.URL}}"/>
+        </div>
+        <div style="width: 70%;display: inline-block;margin-left: 50px;text-align: justify;">
+          {{campeon.Ability_4.Description.itemDescription.description}}
+        </div>
       </div>
       <!--<div *ngFor='let skinCampeon of skinsCampeon'>
         {{skinCampeon.skin_name}}
@@ -107,14 +132,14 @@
                 <div class="pasivaCampeon" style="padding-top: 20px;padding-bottom: 20px;">
                   <div>Pasiva: {{campeon.passive.name}}</div>
                   <div style="display: inline-block; vertical-align: top;">
-                      <img style="width: 100%;" src="http://ddragon.leagueoflegends.com/cdn/9.20.1/img/passive/{{campeon.passive.image.full}}"/>
+                      <img style="width: 100%;" src="https://ddragon.leagueoflegends.com/cdn/9.20.1/img/passive/{{campeon.passive.image.full}}"/>
                   </div>
                   <div style="width: 70%;display: inline-block;margin-left: 50px;text-align: justify;">{{campeon.passive.description}}</div>
                 </div>
                 <div *ngFor="let habilidadCampeon of campeon.spells" style="padding-top: 20px;padding-bottom: 20px;">
                   <div>{{habilidadCampeon.name}}:</div>
                   <div style="display: inline-block; vertical-align: top;">
-                    <img src="http://ddragon.leagueoflegends.com/cdn/9.20.1/img/spell/{{habilidadCampeon.id}}.png"/>
+                    <img src="https://ddragon.leagueoflegends.com/cdn/9.20.1/img/spell/{{habilidadCampeon.id}}.png"/>
                   </div>
                   <div style="width: 70%;display: inline-block;margin-left: 50px;text-align: justify;">
                     {{habilidadCampeon.description}}
