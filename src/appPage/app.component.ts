@@ -9,17 +9,20 @@ import { Router,ActivatedRoute } from '@angular/router';
 export class AppComponent {
   constructor(private route:ActivatedRoute,private router:Router) {
   }
-  tabs = { backgroundcolor: "warn" };
+  tabs = { backgroundcolor: "warn" , accentcolor:"warn"};
   tituloApp = "Next Level";
   onSelectChange(event: MatTabChangeEvent) {
     if (event.index == 0) {
       this.tabs.backgroundcolor = "warn";
+      this.tabs.accentcolor = "warn";
       this.router.navigate(['homePageLol']);
     } else if(event.index == 1) {
       this.tabs.backgroundcolor = "accent";
+      this.tabs.accentcolor = "accent";
       this.router.navigate(['homePagePaladins']);
     }else if(event.index == 2){
       this.tabs.backgroundcolor = "primary";
+      this.tabs.accentcolor = "primary";
       this.router.navigate(['homePageSmite']);
     }
   }
