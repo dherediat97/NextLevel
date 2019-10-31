@@ -9,48 +9,55 @@
       </div>
     </div>
     <div class="contenedorCampeon">
-      Habilidades:
-      <div class="habilidad">
-        <div>{{campeon.Ability1}}</div>
-        <div style="display: inline-block; vertical-align: top;">
-          <img class="habilidadCampeonImagen" src="{{campeon.Ability_1.URL}}"/>
-        </div>
-        <div style="width: 70%;display: inline-block;margin-left: 50px;text-align: justify;">
-          {{campeon.Ability_1.Description}}
-        </div>
-      </div>
-      <div class="habilidad">
-        <div>{{campeon.Ability2}}</div>
-        <div style="display: inline-block; vertical-align: top;">
-          <img class="habilidadCampeonImagen" src="{{campeon.Ability_2.URL}}"/>
-        </div>
-        <div style="width: 70%;display: inline-block;margin-left: 50px;text-align: justify;">
-          {{campeon.Ability_2.Description}}
-        </div>
-      </div>
-      <div class="habilidad">
-        <div>{{campeon.Ability3}}</div>
-        <div style="display: inline-block; vertical-align: top;">
-          <img class="habilidadCampeonImagen" src="{{campeon.Ability_3.URL}}"/>
-        </div>
-        <div style="width: 70%;display: inline-block;margin-left: 50px;text-align: justify;">
-          {{campeon.Ability_3.Description}}
-        </div>
-        
-      </div>
-      <div class="habilidad">
-        <div>{{campeon.Ability4}}</div>
-        <div style="display: inline-block; vertical-align: top;">
-          <img class="habilidadCampeonImagen" src="{{campeon.Ability_4.URL}}"/>
-        </div>
-        <div style="width: 70%;display: inline-block;margin-left: 50px;text-align: justify;">
-          {{campeon.Ability_4.Description}}
-        </div>
-        
-      </div>
-      <!--<div *ngFor='let skinCampeon of skinsCampeon'>
-        {{skinCampeon.skin_name}}
-      </div>-->
+      <mat-tab-group>
+        <mat-tab label="Habilidades">
+          <div class="habilidad">
+            <div>{{campeon.Ability1}}</div>
+            <div style="display: inline-block; vertical-align: top;">
+              <img class="habilidadCampeonImagen" src="{{campeon.Ability_1.URL}}"/>
+            </div>
+            <div style="width: 70%;display: inline-block;margin-left: 50px;text-align: justify;">
+              {{campeon.Ability_1.Description}}
+            </div>
+          </div>
+          <div class="habilidad">
+            <div>{{campeon.Ability2}}</div>
+            <div style="display: inline-block; vertical-align: top;">
+              <img class="habilidadCampeonImagen" src="{{campeon.Ability_2.URL}}"/>
+            </div>
+            <div style="width: 70%;display: inline-block;margin-left: 50px;text-align: justify;">
+              {{campeon.Ability_2.Description}}
+            </div>
+          </div>
+          <div class="habilidad">
+            <div>{{campeon.Ability3}}</div>
+            <div style="display: inline-block; vertical-align: top;">
+              <img class="habilidadCampeonImagen" src="{{campeon.Ability_3.URL}}"/>
+            </div>
+            <div style="width: 70%;display: inline-block;margin-left: 50px;text-align: justify;">
+              {{campeon.Ability_3.Description}}
+            </div>
+            
+          </div>
+          <div class="habilidad">
+            <div>{{campeon.Ability4}}</div>
+            <div style="display: inline-block; vertical-align: top;">
+              <img class="habilidadCampeonImagen" src="{{campeon.Ability_4.URL}}"/>
+            </div>
+            <div style="width: 70%;display: inline-block;margin-left: 50px;text-align: justify;">
+              {{campeon.Ability_4.Description}}
+            </div>
+            
+          </div>
+        </mat-tab>
+        <mat-tab label="Skins">
+            Aspectos de {{campeon.Name}}:
+            <div *ngFor="let skin of skinsCampeon">
+              <p>{{skin.skin_name}}</p>
+              <img class="imagenSkinCampeon" src="" alt="">
+            </div>
+          </mat-tab>
+      </mat-tab-group>
     </div>
   </div>
 </div>
@@ -69,7 +76,8 @@
       </div>
     </div>
     <div class="contenedorCampeon">
-      Habilidades:
+      <mat-tab-group>
+      <mat-tab label="Habilidades">
       <div class="habilidad">
         <div>{{campeon.Ability1}}</div>
         <div style="display: inline-block; vertical-align: top;">
@@ -106,9 +114,15 @@
           {{campeon.Ability_4.Description.itemDescription.description}}
         </div>
       </div>
-      <!--<div *ngFor='let skinCampeon of skinsCampeon'>
-        {{skinCampeon.skin_name}}
-      </div>-->
+      </mat-tab>
+      <mat-tab label="Skins">
+        Aspectos de {{campeon.Name}}:
+        <div *ngFor="let skin of skinsCampeon">
+          <p>{{skin.skin_name}}</p>
+          <img class="imagenSkinCampeon" src="{{skin.godSkin_URL}}" alt="">
+        </div>
+      </mat-tab>
+    </mat-tab-group>
     </div>
   </div>
 </div>
@@ -125,10 +139,17 @@
         <br/>
         <span>{{campeon.lore}}</span>
       </div>
+      <div *ngIf="campeon.partype != 'Nada'">
+        <p>{{campeon.name}} consume {{campeon.partype}} en sus habilidades</p>
+      </div>
+      <div *ngIf="campeon.partype == 'Nada'">
+        <p>{{campeon.name}} no necesita mána, energía o  furia en sus habilidades</p>
+      </div>
     </div>
+    <div class="contenedorCampeon">
     <mat-tab-group>
         <mat-tab label="Habilidades">
-            <div class="contenedorCampeon">
+            
                 <div class="pasivaCampeon" style="padding-top: 20px;padding-bottom: 20px;">
                   <div>Pasiva: {{campeon.passive.name}}</div>
                   <div style="display: inline-block; vertical-align: top;">
@@ -145,10 +166,8 @@
                     {{habilidadCampeon.description}}
                   </div>
                 </div> 
-              </div>
         </mat-tab>
         <mat-tab label="Detalles">
-            <div class="contenedorCampeon">
             Consejos como aliado:
             <ul>
               <li *ngFor="let consejosAliado of campeon.allytips">
@@ -161,15 +180,17 @@
                 {{consejosEnemigo}}
               </li>
             </ul>
-            </div>
         </mat-tab>
         <mat-tab label="Skins">
-            <div class="contenedorCampeon">
-                Skins:
-                <!--<ng-image-slider [images]="skinsImageObject" #nav></ng-image-slider>-->
-            </div>
+                Aspectos de {{campeon.name}}:
+                <div *ngFor="let skin of campeon.skins">
+                  <p *ngIf="skin.name!='default'">{{skin.name}}</p>
+                  <p *ngIf="skin.name=='default'">Aspecto por Defecto</p>
+                  <img class="imagenSkinCampeon" src="https://ddragon.leagueoflegends.com/cdn/img/champion/splash/{{campeon.name}}_{{skin.num}}.jpg" alt="">
+                </div>
         </mat-tab>
       </mat-tab-group>
+      </div>
         
     </div>
   </div>
