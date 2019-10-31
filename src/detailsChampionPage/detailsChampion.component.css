@@ -2,6 +2,11 @@
 	width: 100px;
 	height: 100px;
 }
+.imagenSkinCampeon{
+	width: 415px;
+	padding-bottom: 10px;
+	padding-top: 10px;
+}
 .detallesCampeon{
 	float: right;
 	padding-right: 70px;

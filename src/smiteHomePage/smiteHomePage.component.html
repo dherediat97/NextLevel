@@ -1,4 +1,5 @@
-<mat-card class="cardGod" *ngFor='let dios of dioses' (click)="detallesCampeon(dios.id)">
+<div class="listaCampeones">
+  <mat-card class="cardGod" *ngFor='let dios of dioses' (click)="detallesCampeon(dios.id)">
   <mat-card-header>
     <mat-card-title>{{dios.Name}}</mat-card-title>
     <mat-card-subtitle>{{dios.Title}}</mat-card-subtitle>
@@ -40,3 +41,4 @@
     </div>
   </mat-card-content>
 </mat-card>
+</div>

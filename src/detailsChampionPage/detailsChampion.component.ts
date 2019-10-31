@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
-import { HttpModule, Http } from '@angular/http';
+import { Http } from '@angular/http';
 import { Router, ActivatedRoute } from '@angular/router';
-import { HttpClient } from '@angular/common/http';
 import { environment } from '../environments/environment';
 @Component({
   selector: 'detalle-pagina-campeon',
@@ -19,7 +18,6 @@ export class DetailsChampionComponent {
   campeon: any;
   skinsCampeon: any;
   juego: any;
-  skinsImageObject: any;
 
   constructor(private http: Http, private router: Router,private route: ActivatedRoute) {
     this.idCampeon = this.route.snapshot.params['id'];
@@ -42,26 +40,25 @@ export class DetailsChampionComponent {
   cargarDatosCampeonLol(){
    this.nombreCampeon = this.route.snapshot.params['id'];
    this.obtenerCampeonLol(this.nombreCampeon);
-   this.obtenerSkinCampeonLol(this.nombreCampeon);
   }
   cargarDatosCampeonSmite(){
    this.idCampeon = this.route.snapshot.params['id'];
    this.obtenerCampeonSmite(this.idCampeon);
-   //this.obtenerSkinCampeonSmite(this.idCampeon);
+   this.obtenerSkinDiosSmite(this.idCampeon);
   }
   cargarDatosCampeonPaladins(){
    this.idCampeon = this.route.snapshot.params['id'];
    this.obtenerCampeonPaladins(this.idCampeon);
    this.obtenerSkinCampeonPaladins(this.idCampeon);
   }
-  obtenerSkinCampeonSmite(idCampeon){
+  obtenerSkinDiosSmite(idCampeon){
     var url ="";
     if(this.PROD){
       url = 'https://nextlevelserver.herokuapp.com/';
     }else{
       url = 'http://localhost:8081/';
     }
-    this.http.get(url+'smite/obtenerSkinCampeon/'+idCampeon)
+    this.http.get(url+'smite/obtenerSkinDios/'+idCampeon)
       .subscribe(
         res => this.skinsCampeon = res.json().skin
     );
@@ -73,7 +70,7 @@ export class DetailsChampionComponent {
     }else{
       url = 'http://localhost:8081/';
     }
-    this.http.get(url+'paladins/obtenerDios/'+idCampeon)
+    this.http.get(url+'paladins/obtenerSkinCampeon/'+idCampeon)
       .subscribe(
         res => this.skinsCampeon = res.json().skin
     );
@@ -124,8 +121,5 @@ export class DetailsChampionComponent {
             res => this.campeon = res.json()
         );
     }
-  }
-  obtenerSkinCampeonLol(nombreCampeon){
-    
   }
 }

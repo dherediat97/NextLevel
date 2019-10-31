@@ -8,3 +8,6 @@
 .cardChampion .championRol{
   margin-top: 20px;
 }
+.listaCampeones{
+  margin:0 auto;display:block;
+}
