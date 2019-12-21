@@ -180,6 +180,7 @@ var AppComponent = /** @class */ (function () {
         this.route = route;
         this.router = router;
         this.tabs = { backgroundcolor: "warn", accentcolor: "warn" };
+        this.urlPortofolio = "https://dherediat97.github.io/SlimPortoflio/";
         this.tituloApp = "Next Level";
     }
     AppComponent.prototype.onSelectChange = function (event) {
@@ -198,6 +199,9 @@ var AppComponent = /** @class */ (function () {
             this.tabs.accentcolor = "primary";
             this.router.navigate(['homePageSmite']);
         }
+    };
+    AppComponent.prototype.openPortfolio = function () {
+        window.open(this.urlPortofolio, "_blank");
     };
     AppComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
