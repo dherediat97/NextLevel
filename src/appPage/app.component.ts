@@ -10,6 +10,7 @@ export class AppComponent {
   constructor(private route:ActivatedRoute,private router:Router) {
   }
   tabs = { backgroundcolor: "warn" , accentcolor:"warn"};
+  urlPortofolio = "https://dherediat97.github.io/SlimPortoflio/";
   tituloApp = "Next Level";
   onSelectChange(event: MatTabChangeEvent) {
     if (event.index == 0) {
@@ -25,5 +26,8 @@ export class AppComponent {
       this.tabs.accentcolor = "primary";
       this.router.navigate(['homePageSmite']);
     }
+  }
+  openPortfolio(){
+    window.open(urlPortofolio, "_blank");
   }
 }
