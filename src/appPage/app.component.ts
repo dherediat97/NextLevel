@@ -10,7 +10,7 @@ export class AppComponent {
   constructor(private route:ActivatedRoute,private router:Router) {
   }
   tabs = { backgroundcolor: "warn" , accentcolor:"warn"};
-  urlPortfolio = "https://dherediat97.github.io/SlimPortoflio/";
+  urlPortfolio:any = "https://dherediat97.github.io/SlimPortoflio/";
   tituloApp = "Next Level";
   onSelectChange(event: MatTabChangeEvent) {
     if (event.index == 0) {
