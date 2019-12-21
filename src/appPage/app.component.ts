@@ -28,6 +28,6 @@ export class AppComponent {
     }
   }
   openPortfolio(){
-    window.open(urlPortofolio, "_blank");
+    window.open(this.urlPortofolio, "_blank");
   }
 }
