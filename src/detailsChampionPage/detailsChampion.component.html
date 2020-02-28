@@ -37,7 +37,7 @@
             <div style="width: 70%;display: inline-block;margin-left: 50px;text-align: justify;">
               {{campeon.Ability_3.Description}}
             </div>
-            
+
           </div>
           <div class="habilidad">
             <div>{{campeon.Ability4}}</div>
@@ -47,7 +47,7 @@
             <div style="width: 70%;display: inline-block;margin-left: 50px;text-align: justify;">
               {{campeon.Ability_4.Description}}
             </div>
-            
+
           </div>
         </mat-tab>
         <mat-tab label="Skins">
@@ -129,9 +129,9 @@
 <div *ngIf="juego=='lol'">
   <div *ngIf="campeon">
     <div class="detallesCampeon">
-      <img class="imagenCampeon" src="https://ddragon.leagueoflegends.com/cdn/9.20.1/img/champion/{{campeon.name}}.png"/>
+      <img class="imagenCampeon" src="https://ddragon.leagueoflegends.com/cdn/{{versionLol}}/img/champion/{{campeon.name}}.png"/>
       <h3>{{campeon.name}} - {{campeon.title}}</h3>
-      
+
 
       <div class="campeonLore">
         Lore:
@@ -149,23 +149,23 @@
     <div class="contenedorCampeon">
     <mat-tab-group>
         <mat-tab label="Habilidades">
-            
+
                 <div class="pasivaCampeon" style="padding-top: 20px;padding-bottom: 20px;">
                   <div>Pasiva: {{campeon.passive.name}}</div>
                   <div style="display: inline-block; vertical-align: top;">
-                      <img style="width: 100%;" src="https://ddragon.leagueoflegends.com/cdn/9.20.1/img/passive/{{campeon.passive.image.full}}"/>
+                      <img style="width: 100%;" src="https://ddragon.leagueoflegends.com/cdn/{{versionLol}}/img/passive/{{campeon.passive.image.full}}"/>
                   </div>
                   <div style="width: 70%;display: inline-block;margin-left: 50px;text-align: justify;">{{campeon.passive.description}}</div>
                 </div>
                 <div *ngFor="let habilidadCampeon of campeon.spells" style="padding-top: 20px;padding-bottom: 20px;">
                   <div>{{habilidadCampeon.name}}:</div>
                   <div style="display: inline-block; vertical-align: top;">
-                    <img src="https://ddragon.leagueoflegends.com/cdn/9.20.1/img/spell/{{habilidadCampeon.id}}.png"/>
+                    <img src="https://ddragon.leagueoflegends.com/cdn/{{versionLol}}/img/spell/{{habilidadCampeon.id}}.png"/>
                   </div>
                   <div style="width: 70%;display: inline-block;margin-left: 50px;text-align: justify;">
                     {{habilidadCampeon.description}}
                   </div>
-                </div> 
+                </div>
         </mat-tab>
         <mat-tab label="Detalles">
             Consejos como aliado:
@@ -191,6 +191,6 @@
         </mat-tab>
       </mat-tab-group>
       </div>
-        
+
     </div>
   </div>

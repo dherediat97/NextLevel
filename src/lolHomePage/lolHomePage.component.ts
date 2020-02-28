@@ -13,6 +13,7 @@ export class HomePageLolComponent {
   constructor(private http: Http, private router: Router) {
   }
   campeones: any;
+  version: any;
   campeonesGratuitos: any;
   tabs = { backgroundcolor: "primary" };
   nombreInvocador: any;
@@ -31,7 +32,7 @@ export class HomePageLolComponent {
   ngOnInit(){
     this.cargando =true;
     this.obtenerCampeonesLol();
-    this.obtenerCampeonesGratuitos();
+    //this.obtenerCampeonesGratuitos();
   }
   obtenerCampeonesLol(){
     var url ="";
@@ -42,15 +43,19 @@ export class HomePageLolComponent {
     }
     this.http.get(url+'lol/obtenerCampeones')
     .map(res => res.json())
-    .subscribe(data => { 
-    this.champions = {type:data.type,version:data.version,champions:[]}      
+    .subscribe(data => {
+    this.version = data.version;
+    if(this.version != undefined){
+      window.localStorage.setItem('versionLol',this.version);
+    }
+    this.champions = {type:data.type,version:data.version,champions:[]}
     let keyArr: any[] = Object.keys(data.data);
     keyArr.forEach(key => {
       this.champions.champions.push(data.data[key]);
     });
     this.campeones = this.champions.champions;
   })
-  
+
   }
   obtenerCampeonesGratuitos(){
     var url ="";
@@ -61,7 +66,7 @@ export class HomePageLolComponent {
     }
     this.http.get(url+'lol/obtenerCampeonesGratuitos')
     .map(res => res.json())
-    .subscribe(data => { 
+    .subscribe(data => {
     this.campeonesGratuitos = data;
   })
   }
