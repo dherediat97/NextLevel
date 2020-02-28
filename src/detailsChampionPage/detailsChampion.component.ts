@@ -8,7 +8,7 @@ import { environment } from '../environments/environment';
   styleUrls: ['./detailsChampion.component.css']
 })
 export class DetailsChampionComponent {
-  
+
   //Riot Games
   nombreCampeon:any;
 
@@ -17,13 +17,15 @@ export class DetailsChampionComponent {
   PROD:any = environment.production;
   campeon: any;
   skinsCampeon: any;
+  versionLol: any;
   juego: any;
 
   constructor(private http: Http, private router: Router,private route: ActivatedRoute) {
     this.idCampeon = this.route.snapshot.params['id'];
     this.juego = this.route.snapshot.params['juego'];
+    this.versionLol = window.localStorage.getItem('versionLol');
   }
-  
+
   ngOnInit(){
     this.juego = this.route.snapshot.params['juego'];
     if(this.juego=='paladins'){
@@ -35,7 +37,7 @@ export class DetailsChampionComponent {
     }else if(this.juego=='lol'){
       this.nombreCampeon = this.route.snapshot.params['id'];
       this.cargarDatosCampeonLol();
-    }    
+    }
   }
   cargarDatosCampeonLol(){
    this.nombreCampeon = this.route.snapshot.params['id'];
@@ -88,7 +90,7 @@ export class DetailsChampionComponent {
           .subscribe(
             res => this.campeon = res.json().dios[0]
         );
-      
+
     }
   }
   obtenerCampeonPaladins(idCampeon){
@@ -104,7 +106,7 @@ export class DetailsChampionComponent {
           .subscribe(
             res => this.campeon = res.json().campeon[0]
         );
-      
+
     }
   }
   obtenerCampeonLol(nombreCampeon){
