@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { MatTabChangeEvent } from '@angular/material';
 import { Router,ActivatedRoute } from '@angular/router';
 @Component({
   selector: 'next-level-app',
@@ -12,7 +11,7 @@ export class AppComponent {
   tabs = { backgroundcolor: "warn" , accentcolor:"warn"};
   urlPortfolio:any = "https://dherediat97.github.io/SlimPortoflio/";
   tituloApp = "Next Level";
-  onSelectChange(event: MatTabChangeEvent) {
+  onSelectChange(event) {
     if (event.index == 0) {
       this.tabs.backgroundcolor = "warn";
       this.tabs.accentcolor = "warn";

@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
 import { Http } from '@angular/http';
 import { Router } from '@angular/router';
-import 'rxjs/add/operator/map'
+import { Observable, Subject } from 'rxjs';
+import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/catch';
 import { environment } from '../environments/environment';
 @Component({
   selector: 'pagina-principal-lol',
