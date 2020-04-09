@@ -4,13 +4,13 @@
   "license": "MIT",
   "engines": {
     "node": "12.16.x",
-    "npm": "3.10.10"
+    "npm": "6.13.x"
   },
   "scripts": {
     "ng": "ng",
     "startLocal": "ng serve --open --proxy-config proxy.conf.json",
     "startProd": "ng serve --open",
-    "build": "ng build --prod angular-cli-ghpages",
+    "build": "ng build --prod",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
